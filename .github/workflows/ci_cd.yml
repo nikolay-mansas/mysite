@@ -50,10 +50,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Debug SSH connectivity
-        run: |
-          timeout 5 bash -c "echo > /dev/tcp/${{ secrets.SSH_HOST }}/${{ secrets.SSH_PORT }}" && echo "Port open" || echo "Port closed/timeout"
-
       - name: Sync files to server (rsync)
         run: |
           rsync -avz --delete \
