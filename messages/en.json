@@ -1,0 +1,81 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "meta_title": "Kira — Software Developer",
+  "meta_description": "Software developer building web apps, tools, and open-source projects. Explore my work, experience, and get in touch.",
+
+  "nav_work": "Work",
+  "nav_about": "About",
+  "nav_contact": "Contact",
+  "nav_experience": "Experience",
+
+  "status_online": "Available for work",
+  "status_offline": "Currently offline",
+
+  "hero_greeting": "Hi, I'm",
+  "hero_name": "Kira",
+  "hero_role": "Software Developer",
+  "hero_tagline": "I design and build fast, reliable web applications — solo and with teams.",
+  "hero_cta_work": "View my work",
+  "hero_cta_contact": "Get in touch",
+
+  "work_heading": "Selected Work",
+  "work_subheading": "A collection of projects I've built on my own or together with a team.",
+  "work_role_solo": "Solo project",
+  "work_role_team": "Team project",
+  "work_expand": "Read more",
+  "work_collapse": "Show less",
+  "work_visit": "Visit project",
+  "work_close": "Close",
+  "work_about_project": "About the project",
+
+  "about_heading": "About",
+  "about_body": "I'm a software developer focused on building performant, accessible, and maintainable products. I enjoy taking ideas from concept to production, whether that means shipping a full application solo or collaborating closely within a team.",
+
+  "contact_heading": "Let's connect",
+  "contact_body": "Reach out on any of these platforms — I'm always happy to chat about projects, collaboration, or ideas.",
+
+  "footer_rights": "All rights reserved.",
+
+  "error_label": "Error",
+  "error_404_title": "Page not found",
+  "error_404_body": "The page you're looking for doesn't exist or may have been moved.",
+  "error_generic_title": "Something went wrong",
+  "error_generic_body": "An unexpected error occurred. Please try again in a moment.",
+  "error_home": "Back to home",
+
+  "lang_label": "Language",
+  "lang_en": "English",
+  "lang_ru": "Russian",
+
+  "project_1_title": "Realtime Analytics Dashboard",
+  "project_1_short": "A dashboard for visualizing live event streams with sub-second updates.",
+  "project_1_long": "A full-stack analytics platform that ingests millions of events per day and renders them in real time. Built the streaming pipeline, the query layer, and a responsive charting UI. Focused heavily on performance, keeping the interface smooth even under heavy load.",
+
+  "project_2_title": "Open-Source CLI Toolkit",
+  "project_2_short": "A developer CLI that automates repetitive project setup and deployment tasks.",
+  "project_2_long": "An open-source command-line toolkit adopted by hundreds of developers. It scaffolds projects, manages environments, and handles deployments with a single command. I maintained the plugin architecture and documentation, and reviewed community contributions.",
+
+  "project_3_title": "Mobile Fitness App",
+  "project_3_short": "A cross-platform fitness tracker built with a small product team.",
+  "project_3_long": "Worked with a team of four to design and ship a fitness tracking app. I owned the offline-first sync engine and the workout-planning feature. We shipped to both app stores and grew to thousands of active users in the first months.",
+
+  "tech_stack_title": "Tech Stack",
+  "tech_stack_body": "This site is built with Svelte 5, SvelteKit, Tailwind CSS, Paraglide for localization, TypeScript, Vite, and other tools. Automated builds and deployments are set up via GitHub Actions: every push to the main branch triggers a fresh build and deploys the latest version.",
+
+  "footer_about_site": "About site",
+
+  "experience_heading": "Experience",
+  "experience_subheading": "My professional journey",
+  "experience_current": "Current",
+
+  "experience.company1": "Company One",
+  "experience.role1": "Senior Developer",
+  "experience.period1": "2020 – Present",
+  "experience.desc1": "Built scalable web applications with a team of 10. Migrated legacy systems to modern cloud architecture.",
+
+  "experience.company2": "Startup XYZ",
+  "experience.role2": "Full-Stack Engineer",
+  "experience.period2": "2018 – 2020",
+  "experience.desc2": "Developed MVP for a fintech product from scratch. Responsible for both backend (Node.js) and frontend (React)."
+}
