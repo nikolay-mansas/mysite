@@ -53,7 +53,7 @@ jobs:
       - name: Sync files to server (rsync)
         run: |
           rsync -avz --delete \
-            -e "ssh -o StrictHostKeyChecking=no -p" ${{ secrets.SSH_PORT }} \
+            -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }}" \
             ./build/ \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}
 
