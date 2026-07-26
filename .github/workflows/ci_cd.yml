@@ -60,4 +60,4 @@ jobs:
       - name: Restart service on server
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            'systemctl restart mysite-frontend'
+            'sudo systemctl restart mysite-frontend'
