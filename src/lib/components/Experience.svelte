@@ -22,17 +22,14 @@
     <ul class="space-y-12">
       {#each EXPERIENCES as exp (exp.id)}
         <li class="relative pl-10 sm:pl-14">
-          <!-- Точка -->
           <div class="absolute left-0 top-1.5 flex items-center justify-center sm:left-1.5">
             <div
               class="relative flex h-3 w-3 items-center justify-center rounded-full border-2 bg-surface transition-all duration-300
               {exp.current ? 'border-accent' : 'border-border/60'}
               hover:scale-110"
             >
-              <!-- Внутренняя точка (акцент для текущей, иначе прозрачная) -->
               {#if exp.current}
                 <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
-                <!-- Мягкое свечение для текущей -->
                 <span
                   class="absolute -inset-1.5 rounded-full bg-accent/10 animate-pulse"
                   style="animation-duration: 2s;"

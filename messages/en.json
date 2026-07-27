@@ -1,7 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
 
-  "meta_title": "Kira — Software Developer",
+  "meta_title": "Kira — Backend Python Developer",
   "meta_description": "Software developer building web apps, tools, and open-source projects. Explore my work, experience, and get in touch.",
 
   "nav_work": "Work",
@@ -15,7 +15,7 @@
   "hero_greeting": "Hi, I'm",
   "hero_name": "Kira",
   "hero_role": "Software Developer",
-  "hero_tagline": "I design and build fast, reliable web applications — solo and with teams.",
+  "hero_tagline": "I build high‑performance backend systems with Python, FastAPI, PostgreSQL, and Redis — both solo and in teams.",
   "hero_cta_work": "View my work",
   "hero_cta_contact": "Get in touch",
 
@@ -30,7 +30,7 @@
   "work_about_project": "About the project",
 
   "about_heading": "About",
-  "about_body": "I'm a software developer focused on building performant, accessible, and maintainable products. I enjoy taking ideas from concept to production, whether that means shipping a full application solo or collaborating closely within a team.",
+  "about_body": "Backend developer with 5+ years of experience in Python and FastAPI. I specialize in designing high‑load, fault‑tolerant systems for e‑commerce and logistics.\n\n• Architected backend for Ozon integration handling 3M+ shipments.\n• Built Telegram bots for Wildberries analytics used by 500+ sellers.\n• Created a video hosting platform with custom S3 transcoding pipeline.\n\nI own the entire development cycle — from design to deployment — and enjoy working both independently and in cross‑functional teams.",
 
   "contact_heading": "Let's connect",
   "contact_body": "Reach out on any of these platforms — I'm always happy to chat about projects, collaboration, or ideas.",
@@ -48,17 +48,29 @@
   "lang_en": "English",
   "lang_ru": "Russian",
 
-  "project_1_title": "Realtime Analytics Dashboard",
-  "project_1_short": "A dashboard for visualizing live event streams with sub-second updates.",
-  "project_1_long": "A full-stack analytics platform that ingests millions of events per day and renders them in real time. Built the streaming pipeline, the query layer, and a responsive charting UI. Focused heavily on performance, keeping the interface smooth even under heavy load.",
+  "project_1_title": "Warehouse system with Ozon integration",
+  "project_1_short": "Storage, Processing, and Transmission of Information on Millions of Shipments.",
+  "project_1_long": "A high-load backend that stores and processes over 3 million different shipments. It is used by everyone from managers to regular employees, who have varying levels of access rights. Data is retrieved, updated, and modified not only by warehouse staff but also via the Ozon API. Webhooks have been created for the CodeReader service, which allows for quick and convenient barcode scanning.",
 
-  "project_2_title": "Open-Source CLI Toolkit",
-  "project_2_short": "A developer CLI that automates repetitive project setup and deployment tasks.",
-  "project_2_long": "An open-source command-line toolkit adopted by hundreds of developers. It scaffolds projects, manages environments, and handles deployments with a single command. I maintained the plugin architecture and documentation, and reviewed community contributions.",
+  "project_2_title": "Telegram bot for learn English",
+  "project_2_short": "A ready-to-use service for learning English through movies and TV shows on YouTube, along with various games to increase engagement.",
+  "project_2_long": "Writing new features, fixing bugs, and deploying updates to the server for an English-learning service based on YouTube videos. The following features were implemented: multithreaded video processing, transcription handling, and various games designed to make our service more appealing to customers.",
 
-  "project_3_title": "Mobile Fitness App",
-  "project_3_short": "A cross-platform fitness tracker built with a small product team.",
-  "project_3_long": "Worked with a team of four to design and ship a fitness tracking app. I owned the offline-first sync engine and the workout-planning feature. We shipped to both app stores and grew to thousands of active users in the first months.",
+  "project_3_title": "Video hosting",
+  "project_3_short": "A simple service for viewing video content.",
+  "project_3_long": "A personal project for viewing various video content. The frontend is built with Svelte 5, which communicates with the FastAPI backend via a REST API. It features a user system, video playback history tracking, and a search engine. All videos are stored in S3 in a special format that allows content to be delivered to thousands of users simultaneously. I created this format using automated workers that convert the source video with FFmpeg, transcoding it into various resolutions (360, 720, 1080) and a modern codec. The website features a video player built from scratch that automatically analyzes user data to select the optimal video quality.",
+
+  "project_4_title": "Warehouse system with X5 group integration",
+  "project_4_short": "Storage, Processing, and Transmission of Information on Millions of Shipments.",
+  "project_4_long": "A high-load backend that stores and processes over million different shipments. After consulting with our clients from China, we selected the best logistics solution for them for shipments between China and Russia.",
+
+  "project_5_title": "Bonus System for AmoCRM",
+  "project_5_short": "Automatic analysis and processing of purchase bonuses",
+  "project_5_long": "An automated script that uses the AmoCRM API to collect data on customers past and recent purchases, and assigns bonuses and discount tiers to loyal customers",
+
+  "project_6_title": "Telegram bot for sellers on Wildberries",
+  "project_6_short": "All kinds of analytics and calculators",
+  "project_6_long": "It allows you to track various metrics, receive notifications when testing changes to various variables in the product card, and work with the Wildberries API. It also encrypts user data, such as API keys, for security.",
 
   "tech_stack_title": "Tech Stack",
   "tech_stack_body": "This site is built with Svelte 5, SvelteKit, Tailwind CSS, Paraglide for localization, TypeScript, Vite, and other tools. Automated builds and deployments are set up via GitHub Actions: every push to the main branch triggers a fresh build and deploys the latest version.",
@@ -69,13 +81,23 @@
   "experience_subheading": "My professional journey",
   "experience_current": "Current",
 
-  "experience.company1": "Company One",
-  "experience.role1": "Senior Developer",
-  "experience.period1": "2020 – Present",
-  "experience.desc1": "Built scalable web applications with a team of 10. Migrated legacy systems to modern cloud architecture.",
+  "experience.company4": "Freelance",
+  "experience.role4": "Independent Developer",
+  "experience.period4": "2020 – 2022",
+  "experience.desc4": "I developed a wide variety of services and websites tailored to my clients' needs. For each project, I paid close attention and helped define the exact objective and how it would be implemented.",
 
-  "experience.company2": "Startup XYZ",
-  "experience.role2": "Full-Stack Engineer",
-  "experience.period2": "2018 – 2020",
-  "experience.desc2": "Developed MVP for a fintech product from scratch. Responsible for both backend (Node.js) and frontend (React)."
+  "experience.company3": "Startup an English learning service",
+  "experience.role3": "Python developer",
+  "experience.period3": "2022 – 2022",
+  "experience.desc3": "Implemented new features and optimized existing ones; added support for third-party code",
+
+  "experience.company2": "Aerodar",
+  "experience.role2": "Lead developer",
+  "experience.period2": "2022 – 2024",
+  "experience.desc2": "Led a team of developers building high‑load microservices for logistics. Designed async data pipelines with FastAPI, PostgreSQL, and Redis. Integrated with Ozon API, processed 3M+ shipments.",
+
+  "experience.company1": "Order for a sole proprietor",
+  "experience.role1": "Independent Developer",
+  "experience.period1": "2025 – 2026",
+  "experience.desc1": "All business and development processes are carried out in-house."
 }

@@ -4,7 +4,7 @@
 	import About from '$lib/components/About.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import Experience from '$lib/components/Experience.svelte';
-	import { SITE, PROJECTS } from '$lib/config';
+	import { SITE, PROJECTS, SOCIALS } from '$lib/config';
 	import { m } from '$lib/paraglide/messages';
 
 	let jsonLd = $derived(
@@ -15,7 +15,12 @@
 			jobTitle: m.hero_role(),
 			description: m.meta_description(),
 			url: SITE.url,
-			knowsAbout: PROJECTS.flatMap((p) => p.tags)
+			knowsAbout: PROJECTS.flatMap((p) => p.tags),
+			sameAs: SOCIALS.map(s => s.url).filter(url => !url.startsWith('mailto:')),
+			worksFor: {
+				'@type': 'Organization',
+				name: 'Freelance / Self-employed'
+			}
 		})
 	);
 	const scriptClose = '</scr' + 'ipt>';

@@ -38,10 +38,16 @@
 	{#if ogImage}
 		<meta name="twitter:image" content={ogImage} />
 	{/if}
+	<meta name="keywords" content={SITE.keywords} />
 
 	<link rel="alternate" hreflang="en" href={`${SITE.url}/`} />
 	<link rel="alternate" hreflang="ru" href={`${SITE.url}/ru/`} />
 	<link rel="alternate" hreflang="x-default" href={`${SITE.url}/`} />
+
+	<meta name="robots" content="index, follow" />
+
+	<link rel="preconnect" href="https://mysite.s3.ddkira.ru/" crossorigin="anonymous" />
+	<link rel="dns-prefetch" href="https://mysite.s3.ddkira.ru/" crossorigin="anonymous" />
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">

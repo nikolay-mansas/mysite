@@ -6,8 +6,8 @@ module.exports = {
     exec_mode: 'cluster',
     env: {
       NODE_ENV: 'production',
-      PORT: 3000,
-      HOST: '127.0.0.1',
+      PORT: 8000,
+      HOST: '0.0.0.0',
       ORIGIN: 'https://ddkira.ru'
     },
     node_args: '--max-old-space-size=1024',
