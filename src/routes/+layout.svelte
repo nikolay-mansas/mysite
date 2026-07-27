@@ -29,6 +29,9 @@
 	{#if ogImage}
 		<meta property="og:image" content={ogImage} />
 	{/if}
+	<meta property="og:image:alt" content="Kira backend developer" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 
 	<meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
 	<meta name="twitter:title" content={title} />
