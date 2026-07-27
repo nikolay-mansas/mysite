@@ -20,6 +20,7 @@
 	<meta name="description" content={description} />
 	<link rel="canonical" href={canonical} />
 
+	<meta property="og:site_name" content="Kira backend developer" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
@@ -38,6 +39,7 @@
 	{#if ogImage}
 		<meta name="twitter:image" content={ogImage} />
 	{/if}
+	<meta name="twitter:site" content="@DDKira" />
 	<meta name="keywords" content={SITE.keywords} />
 
 	<link rel="alternate" hreflang="en" href={`${SITE.url}/`} />
