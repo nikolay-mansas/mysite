@@ -148,7 +148,7 @@ export const PROJECTS: Project[] = [
     longKey: "project_4_long",
     role: "solo",
     image: "projects/x5group.webp",
-    link: "",
+    link: "https://www.aerodar.ru/",
     tags: ["Fastapi", "REST API", "SQLAlchemy", "PostgreSQL", "Redis"],
     year: "2025",
   },
