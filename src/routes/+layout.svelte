@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+	import { getLocale } from '$lib/paraglide/runtime';
 	import { m } from '$lib/paraglide/messages';
 	import { SITE, s3 } from '$lib/config';
 	import Header from '$lib/components/Header.svelte';
@@ -12,7 +12,7 @@
 	let title = $derived(m.meta_title());
 	let description = $derived(m.meta_description());
 	let ogImage = $derived(SITE.ogImage ? s3(SITE.ogImage) : '');
-	let canonical = $derived(`${SITE.url}${localizeHref('/', { locale })}`);
+	let canonical = $derived(`${SITE.url}/`);
 </script>
 
 <svelte:head>
