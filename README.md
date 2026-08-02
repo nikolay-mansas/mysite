@@ -47,9 +47,3 @@ npm run build
 - src/lib/components — UI components
 - src/lib/config.ts — main site content and links
 - messages/ — translations
-
-## 💡 Notes
-
-The site content is mostly driven by configuration files, so it is easy to update with your own projects, links, and biography.
-
-If you want, I can also make the README more polished with a screenshot section and badges.
