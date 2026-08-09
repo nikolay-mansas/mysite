@@ -15,6 +15,10 @@
 			&copy; {year} {m.hero_name()}. {m.footer_rights()}
 		</p>
 
+		<p class="text-xs text-muted/50 italic">
+			Kira is best!
+		</p>
+
 		<div class="flex items-center gap-4">
 			<button
 				type="button"
