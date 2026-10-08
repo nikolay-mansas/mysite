@@ -174,6 +174,17 @@ export const PROJECTS: Project[] = [
     tags: ["Python", "Aiogram", "SQLAlchemy", "aiogram-dialog", "PostgreSQL", "Redis", "Cryptography"],
     year: "2026",
   },
+  {
+    id: "project-7",
+    titleKey: "project_7_title",
+    shortKey: "project_7_short",
+    longKey: "project_7_long",
+    role: "solo",
+    image: "projects/sik_rasp.webp",
+    link: "https://xn--h1aet.su",
+    tags: ["Aiogram", "SQLAlchemy", "aiogram-dialog", "PostgreSQL", "Redis", "RabbitMQ", "K8S"],
+    year: "2026",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -203,7 +214,7 @@ export const EXPERIENCES: Experience[] = [
     roleKey: 'experience.role1',
     periodKey: 'experience.period1',
     descriptionKey: 'experience.desc1',
-    current: true,
+    current: false,
   },
   {
     id: 'exp2',
@@ -227,6 +238,13 @@ export const EXPERIENCES: Experience[] = [
     periodKey: 'experience.period4',
     descriptionKey: 'experience.desc4',
   },
+  {
+    id: 'exp5',
+    companyKey: 'experience.company5',
+    roleKey: 'experience.role5',
+    periodKey: 'experience.period5',
+    descriptionKey: 'experience.desc5',
+  },
 ];
 
 export const SKILLS = [
@@ -241,4 +259,7 @@ export const SKILLS = [
   'Linux',
   'Git',
   'CI/CD (GitHub Actions)',
+  'K8S',
+  'RabbitMQ',
+  'GRPC'
 ];

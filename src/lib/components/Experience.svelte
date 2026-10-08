@@ -16,7 +16,6 @@
   </div>
 
   <div class="relative">
-    <!-- Тонкая линия -->
     <div class="absolute left-4 top-2 h-full w-px bg-border/30 sm:left-6"></div>
 
     <ul class="space-y-12">

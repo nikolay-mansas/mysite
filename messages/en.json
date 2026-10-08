@@ -72,6 +72,10 @@
   "project_6_short": "All kinds of analytics and calculators",
   "project_6_long": "It allows you to track various metrics, receive notifications when testing changes to various variables in the product card, and work with the Wildberries API. It also encrypts user data, such as API keys, for security.",
 
+  "project_7_title": "Schedule Bot for Telegram, VK, and MAX",
+  "project_7_short": "Multi-platform bot that helps students find their college schedule and notifies them when it changes.",
+  "project_7_long": "Developed a multi-platform schedule bot for Telegram, VK, and MAX. Implemented automatic analysis of the college website, collection of all data, and its further processing. Users can quickly find their college schedule and receive notifications about schedule changes. Implemented a unified database layer for all messengers, a queue-based system for broadcasts and alerts, and concurrent request handling.",
+
   "tech_stack_title": "Tech Stack",
   "tech_stack_body": "This site is built with Svelte 5, SvelteKit, Tailwind CSS, Paraglide for localization, TypeScript, Vite, and other tools. Automated builds and deployments are set up via GitHub Actions: every push to the main branch triggers a fresh build and deploys the latest version.",
 
@@ -81,23 +85,35 @@
   "experience_subheading": "My professional journey",
   "experience_current": "Current",
 
-  "experience.company4": "Freelance",
-  "experience.role4": "Independent Developer",
-  "experience.period4": "2020 – 2022",
-  "experience.desc4": "I developed a wide variety of services and websites tailored to my clients' needs. For each project, I paid close attention and helped define the exact objective and how it would be implemented.",
-
-  "experience.company3": "Startup an English learning service",
-  "experience.role3": "Python developer",
-  "experience.period3": "2022 – 2022",
-  "experience.desc3": "Implemented new features and optimized existing ones; added support for third-party code",
-
-  "experience.company2": "Aerodar",
-  "experience.role2": "Lead developer",
-  "experience.period2": "2022 – 2024",
-  "experience.desc2": "Led a team of developers building high‑load microservices for logistics. Designed async data pipelines with FastAPI, PostgreSQL, and Redis. Integrated with Ozon API, processed 3M+ shipments.",
-
-  "experience.company1": "Order for a sole proprietor",
+  "experience.company1": "Sole Proprietor",
   "experience.role1": "Independent Developer",
   "experience.period1": "2025 – 2026",
-  "experience.desc1": "All business and development processes are carried out in-house."
+  "experience.desc1": "All business and development processes are handled in-house.",
+
+  "experience.company2": "Aerodar",
+  "experience.role2": "Lead Developer",
+  "experience.period2": "2023 – 2025",
+  "experience.desc2": "Led a team of developers building high-load microservices for logistics. Designed async data pipelines with FastAPI, PostgreSQL, and Redis. Integrated with Ozon API, processed 3M+ shipments.",
+
+  "experience.company3": "English Learning Startup",
+  "experience.role3": "Python Developer",
+  "experience.period3": "2022 – 2023",
+  "experience.desc3": "Implemented new features and optimized existing ones; added support for third-party code.",
+
+  "experience.company4": "CNC Machines",
+  "experience.role4": "Software Developer",
+  "experience.period4": "2021 – 2022",
+  "experience.desc4": "Developed software for CNC machines: control logic, G-code processing, and integration with hardware.",
+
+  "experience.company5": "Freelance",
+  "experience.role5": "Independent Developer",
+  "experience.period5": "2020 – 2021",
+  "experience.desc5": "Developed a wide variety of services and websites tailored to clients' needs. For each project, paid close attention and helped define the exact objective and how it would be implemented.",
+
+  "skills_heading": "Skills & Languages",
+  "skills_hard": "Tech Stack",
+  "skills_languages": "Languages",
+  "lang_native": "Native",
+  "lang_b2": "B2 (Upper Intermediate)",
+  "etcetera": "and much more"
 }
