@@ -8,6 +8,7 @@
 	const links = [
 		{ href: '#work', label: () => m.nav_work() },
 		{ href: '#about', label: () => m.nav_about() },
+		{ href: '#skills', label: () => m.nav_skills() },
 		{ href: '#experience', label: () => m.nav_experience() },
 		{ href: '#contact', label: () => m.nav_contact() },
 	];
