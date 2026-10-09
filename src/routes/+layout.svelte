@@ -5,6 +5,7 @@
 	import { SITE, s3 } from '$lib/config';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
 
 	let { children } = $props();
 
@@ -58,6 +59,7 @@
 <div class="flex min-h-screen flex-col">
 	<Header />
 	<main class="flex-1">
+		<ScrollToTop />
 		{@render children()}
 	</main>
 	<Footer />

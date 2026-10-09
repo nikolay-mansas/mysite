@@ -1,16 +1,26 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import { m } from '$lib/paraglide/messages';
+	import { localizeHref } from '$lib/paraglide/runtime';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 	import StatusBadge from './StatusBadge.svelte';
 
 	let open = $state(false);
 
-	const links = [
-		{ href: '#work', label: () => m.nav_work() },
-		{ href: '#about', label: () => m.nav_about() },
-		{ href: '#skills', label: () => m.nav_skills() },
-		{ href: '#experience', label: () => m.nav_experience() },
-		{ href: '#contact', label: () => m.nav_contact() },
+	type NavLink = {
+		href: string;
+		label: () => string;
+		kind: 'anchor' | 'page';
+	};
+
+	const links: NavLink[] = [
+		{ href: '#work', label: () => m.nav_work(), kind: 'anchor' },
+		{ href: '#about', label: () => m.nav_about(), kind: 'anchor' },
+		{ href: '#skills', label: () => m.nav_skills(), kind: 'anchor' },
+		{ href: '#experience', label: () => m.nav_experience(), kind: 'anchor' },
+		{ href: '#contact', label: () => m.nav_contact(), kind: 'anchor' },
+		{ href: '/tools', label: () => m.nav_tools(), kind: 'page' },
 	];
 
 	function close() {
@@ -23,7 +33,7 @@
 >
 	<div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
 		<a
-			href="#top"
+			href={resolve(localizeHref('/') as Pathname)}
 			class="font-mono text-sm font-semibold tracking-tight text-foreground"
 			onclick={close}
 		>
@@ -33,10 +43,31 @@
 		<nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
 			{#each links as link (link.href)}
 				<a
-					href={link.href}
-					class="text-sm text-muted transition-colors hover:text-foreground"
+					href={link.kind === 'anchor'
+						? resolve((localizeHref('/') + link.href) as Pathname)
+						: resolve(localizeHref(link.href) as Pathname)}
+					class={[
+						'text-sm transition-colors hover:text-foreground',
+						link.kind === 'page'
+							? 'inline-flex items-center gap-1 font-medium text-foreground/80'
+							: 'text-muted'
+					]}
 				>
 					{link.label()}
+					{#if link.kind === 'page'}
+						<svg
+							class="h-3 w-3 opacity-60"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path d="M5 12h14M13 6l6 6-6 6" />
+						</svg>
+					{/if}
 				</a>
 			{/each}
 		</nav>
@@ -80,11 +111,32 @@
 				{#each links as link (link.href)}
 					<li>
 						<a
-							href={link.href}
+							href={link.kind === 'anchor'
+								? resolve((localizeHref('/') + link.href) as Pathname)
+								: resolve(localizeHref(link.href) as Pathname)}
 							onclick={close}
-							class="block rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
+							class={[
+								'flex items-center gap-1 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-surface hover:text-foreground',
+								link.kind === 'page'
+									? 'font-medium text-foreground/80'
+									: 'text-muted'
+							]}
 						>
 							{link.label()}
+							{#if link.kind === 'page'}
+								<svg
+									class="h-3 w-3 opacity-60"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path d="M5 12h14M13 6l6 6-6 6" />
+								</svg>
+							{/if}
 						</a>
 					</li>
 				{/each}
