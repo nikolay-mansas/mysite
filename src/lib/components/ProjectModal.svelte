@@ -1,9 +1,6 @@
 <script lang='ts'>
-	import { resolve } from '$app/paths';
-	import type { Pathname } from '$app/types';
 	import { m } from '$lib/paraglide/messages';
 	import { s3, type Project } from '$lib/config';
-	import { localizeHref } from '$lib/paraglide/runtime';
 
 	let { project, open, onClose } = $props<{ project: Project; open: boolean; onClose: () => void }>();
 
@@ -139,9 +136,9 @@
 
 					{#if project.link}
 						<a
-							href={resolve(localizeHref(project.link) as Pathname)}
+							href={project.link}
 							target='_blank'
-							rel='noopener noreferrer'
+							rel='external noopener noreferrer'
 							class='mt-7 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90'
 						>
 							{m.work_visit()}
