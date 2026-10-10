@@ -9,6 +9,11 @@ const config = {
       out: "build",
       precompress: true,
     }),
+    paths: {
+      relative: false,
+      base: '',
+      assets: ''
+    }
   },
 };
 
