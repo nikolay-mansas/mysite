@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: "^26.3.0"
           cache: "npm"
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
       - run: npm run build --if-present
         env:
           PUBLIC_S3_BASE_URL: ${{ secrets.PUBLIC_S3_BASE_URL }}
