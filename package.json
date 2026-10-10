@@ -1,6 +1,6 @@
 {
   "name": "mysite",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -21,6 +21,7 @@
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.0",
+    "@types/he": "^1.2.3",
     "@types/node": "^24",
     "eslint": "^10.4.1",
     "eslint-config-prettier": "^10.1.8",
@@ -37,8 +38,18 @@
     "vite": "^8.0.16"
   },
   "dependencies": {
+    "@hugoalh/adler32": "^0.7.0",
     "@inlang/paraglide-js": "^2.22.0",
-    "esbuild": "^0.28.1"
+    "@li0ard/gost": "^0.2.7",
+    "@noble/hashes": "^2.4.0",
+    "@plus99/murmur-hash": "^1.0.2",
+    "@scure/base": "^2.4.0",
+    "esbuild": "^0.28.1",
+    "hash-wasm": "^4.12.0",
+    "he": "^2.0.0",
+    "js-xxhash": "^5.0.1",
+    "pure-md5": "^1.0.0",
+    "uuid": "^14.0.2"
   },
   "allowScripts": {
     "esbuild@0.28.1": true
