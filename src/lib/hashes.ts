@@ -12,11 +12,32 @@ import {
 	md5 as _md5,
 } from '@noble/hashes/legacy.js';
 import { hmac as _hmac } from '@noble/hashes/hmac.js';
-import { sha256, sha384, sha512 } from '@noble/hashes/sha2.js';
+import { sha224, sha256, sha384, sha512 } from '@noble/hashes/sha2.js';
 import { bytesToHex } from '@noble/hashes/utils.js';
 
 // ---------- utils ----------
 export const toHex = bytesToHex;
+
+export function hexToBytes(hex: string): Uint8Array {
+	const clean = hex.length % 2 !== 0 ? '0' + hex : hex;
+	const bytes = new Uint8Array(clean.length / 2);
+	for (let i = 0; i < clean.length; i += 2) {
+		bytes[i / 2] = parseInt(clean.substring(i, i + 2), 16);
+	}
+	return bytes;
+}
+
+export function concatBytes(...arrays: Uint8Array[]): Uint8Array {
+	let total = 0;
+	for (const a of arrays) total += a.length;
+	const res = new Uint8Array(total);
+	let offset = 0;
+	for (const a of arrays) {
+		res.set(a, offset);
+		offset += a.length;
+	}
+	return res;
+}
 
 export function bytesToBase64(bytes: Uint8Array): string {
 	let bin = '';
@@ -58,25 +79,74 @@ export async function hmac(
 	return _hmac(HMAC_HASHES[algo], key, data);
 }
 
-// ---------- SHA-3 / Keccak ----------
-export const sha3_224 = (b: Uint8Array) => _sha3_224(b);
-export const sha3_256 = (b: Uint8Array) => _sha3_256(b);
-export const sha3_384 = (b: Uint8Array) => _sha3_384(b);
-export const sha3_512 = (b: Uint8Array) => _sha3_512(b);
-export const keccak256 = (b: Uint8Array) => keccak_256(b);
+export function computeHmacSync(
+	hashFn: (data: Uint8Array) => Uint8Array,
+	blockSize: number,
+	key: Uint8Array,
+	message: Uint8Array
+): Uint8Array {
+	let k = key;
+	if (k.length > blockSize) {
+		k = hashFn(k);
+	}
+	if (k.length < blockSize) {
+		const padded = new Uint8Array(blockSize);
+		padded.set(k);
+		k = padded;
+	}
 
-// ---------- BLAKE2 ----------
-export function blake2b(bytes: Uint8Array, outLen = 64): Uint8Array {
-	return _blake2b(bytes, { dkLen: outLen });
-}
-export function blake2s(bytes: Uint8Array, outLen = 32): Uint8Array {
-	return _blake2s(bytes, { dkLen: outLen });
+	const oKeyPad = new Uint8Array(blockSize);
+	const iKeyPad = new Uint8Array(blockSize);
+	for (let i = 0; i < blockSize; i++) {
+		oKeyPad[i] = k[i] ^ 0x5c;
+		iKeyPad[i] = k[i] ^ 0x36;
+	}
+
+	const inner = hashFn(concatBytes(iKeyPad, message));
+	return hashFn(concatBytes(oKeyPad, inner));
 }
 
-// ---------- MD5 / RIPEMD-160 ----------
-export function md5(bytes: Uint8Array): Uint8Array {
-	return _md5(bytes);
+export async function computeHmacAsync(
+	hashFn: (data: Uint8Array) => Promise<Uint8Array>,
+	blockSize: number,
+	key: Uint8Array,
+	message: Uint8Array
+): Promise<Uint8Array> {
+	let k = key;
+	if (k.length > blockSize) {
+		k = await hashFn(k);
+	}
+	if (k.length < blockSize) {
+		const padded = new Uint8Array(blockSize);
+		padded.set(k);
+		k = padded;
+	}
+
+	const oKeyPad = new Uint8Array(blockSize);
+	const iKeyPad = new Uint8Array(blockSize);
+	for (let i = 0; i < blockSize; i++) {
+		oKeyPad[i] = k[i] ^ 0x5c;
+		iKeyPad[i] = k[i] ^ 0x36;
+	}
+
+	const inner = await hashFn(concatBytes(iKeyPad, message));
+	return await hashFn(concatBytes(oKeyPad, inner));
 }
-export function ripemd160(bytes: Uint8Array): Uint8Array {
-	return _ripemd160(bytes);
-}
+
+export const nobleHmac = _hmac;
+export {
+	sha224,
+	sha256,
+	sha384,
+	sha512,
+	_sha3_224 as sha3_224,
+	_sha3_256 as sha3_256,
+	_sha3_384 as sha3_384,
+	_sha3_512 as sha3_512,
+	keccak_256 as keccak256,
+	_blake2b as blake2b,
+	_blake2s as blake2s,
+	_ripemd160 as ripemd160,
+	sha1,
+	_md5 as md5
+};
