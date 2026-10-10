@@ -532,7 +532,7 @@
   "tools_hub_cipher_desc": "Symmetric & asymmetric cryptography: AES (128–512 bit GCM), ChaCha20, Twofish, Blowfish, Serpent, 3DES, DES, IDEA, Camellia, ARIA, RSA-2048 (OAEP), ECDSA (P-256), ECDH, Diffie-Hellman, and NIST FIPS 203/204 Post-Quantum (ML-KEM & ML-DSA).",
   "tools_hub_hmac_desc": "Keyed message authentication: HMAC-SHA256 (JWT HS256, AWS SigV4), HMAC-SHA512, HMAC-SHA3, HMAC-BLAKE2, HMAC-Streebog GOST, Chinese HMAC-SM3 standard, HMAC-Whirlpool, HMAC-MD5, and HMAC-RIPEMD.",
   "tools_hub_encode_desc": "Instant data conversion & inspection: Base64, URL-safe Base64, Base32 (TOTP), clean Hex dumps, URL percent encoding, HTML entities, ROT13 cipher, raw Binary bits, and decimal ASCII.",
-  "tools_hub_misc_desc": "Random UUID v4, time-ordered UUID v7 (RFC 9562), deterministic v3/v5, Minecraft offline player UUIDs, plus deep inspector for timestamps, clock sequences, and MAC node bytes.",
+  "tools_hub_uuid_desc": "Random UUID v4, time-ordered UUID v7 (RFC 9562), deterministic v3/v5, Minecraft offline player UUIDs, plus deep inspector for timestamps, clock sequences, and MAC node bytes.",
 
   "tools_hub_faq_q1": "Does any of my data get transmitted to a remote server?",
   "tools_hub_faq_a1": "No. All hash computations, encryption, key generation, and encoding routines are executed strictly client-side inside your browser sandbox via native hardware Web Crypto API instructions and WebAssembly. You can inspect the Network tab in DevTools — zero payload bytes leave your machine.",

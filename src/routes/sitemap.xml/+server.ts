@@ -23,7 +23,7 @@ const PAGES: readonly PageEntry[] = [
   { path: "/tools/encode", changefreq: "monthly", priority: 0.9 },
   { path: "/tools/cipher", changefreq: "monthly", priority: 0.8 },
   { path: "/tools/hmac", changefreq: "monthly", priority: 0.8 },
-  { path: "/tools/misc", changefreq: "monthly", priority: 0.7 },
+  { path: "/tools/uuid", changefreq: "monthly", priority: 0.7 },
 ] as const;
 
 const BASE_URL = SITE.url.replace(/\/+$/, "");

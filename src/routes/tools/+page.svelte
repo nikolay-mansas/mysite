@@ -36,9 +36,9 @@
 			tags: ['Base64', 'Base64 URL', 'Hex', 'Base32', 'URL percent', 'Binary', 'ROT13']
 		},
 		{
-			href: '/tools/misc',
+			href: '/tools/uuid',
 			title: m.uuid_breadcrumb_title(),
-			desc: m.tools_hub_misc_desc(),
+			desc: m.tools_hub_uuid_desc(),
 			tags: ['UUID v4', 'UUID v7', 'Minecraft UUID', 'UUID Inspector', 'RFC 9562']
 		}
 	]);
