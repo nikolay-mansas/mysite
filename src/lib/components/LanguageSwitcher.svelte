@@ -1,14 +1,32 @@
 <script lang="ts">
-	import { getLocale, setLocale, locales } from '$lib/paraglide/runtime';
+	import { page } from '$app/state';
+	import { getLocale, setLocale, locales, baseLocale } from '$lib/paraglide/runtime';
 
-	let current = $derived(getLocale());
+	type Locale = (typeof locales)[number];
 
-	const labels: Record<string, string> = { en: 'EN', ru: 'RU' };
+	const labels: Record<Locale, string> = { en: 'EN', ru: 'RU' };
 
-	function choose(locale: string) {
-		if (locale !== current) {
-			setLocale(locale as (typeof locales)[number]);
+	function isLocale(value: string): value is Locale {
+		return (locales as readonly string[]).includes(value);
+	}
+
+	function localeFromPath(pathname: string): Locale {
+		const seg = pathname.split('/')[1] ?? '';
+		return isLocale(seg) ? seg : (baseLocale as Locale);
+	}
+
+	let current = $derived.by(() => localeFromPath(page.url.pathname));
+
+	$effect(() => {
+		const target = localeFromPath(page.url.pathname);
+		if (getLocale() !== target) {
+			setLocale(target, { reload: false });
 		}
+	});
+
+	function choose(locale: Locale) {
+		if (locale === current) return;
+		setLocale(locale);
 	}
 </script>
 
