@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import { onMount } from 'svelte';
 	import { m } from '$lib/paraglide/messages';
 	import { md5, toHex, webDigest } from '$lib/hashes';
@@ -497,35 +497,35 @@
 	});
 </script>
 
-<div class="rounded-2xl border border-border bg-surface p-5 sm:p-6 shadow-sm">
-	<div class="mb-6 flex border-b border-border/80">
+<div class='rounded-2xl border border-border bg-surface p-5 sm:p-6 shadow-sm'>
+	<div class='mb-6 flex border-b border-border/80'>
 		<button
-			type="button"
+			type='button'
 			onclick={() => (activeTab = 'generator')}
-			class="relative -mb-px px-4 py-2.5 text-sm font-medium transition-colors {activeTab === 'generator'
+			class='relative -mb-px px-4 py-2.5 text-sm font-medium transition-colors {activeTab === 'generator'
 				? 'border-b-2 border-accent font-semibold text-accent'
-				: 'text-muted hover:text-foreground'}"
+				: 'text-muted hover:text-foreground'}'
 		>
 			{m.uuid_tab_generator()}
 		</button>
 		<button
-			type="button"
+			type='button'
 			onclick={() => {
 				activeTab = 'decoder';
 				runDecoder();
 			}}
-			class="relative -mb-px px-4 py-2.5 text-sm font-medium transition-colors {activeTab === 'decoder'
+			class='relative -mb-px px-4 py-2.5 text-sm font-medium transition-colors {activeTab === 'decoder'
 				? 'border-b-2 border-accent font-semibold text-accent'
-				: 'text-muted hover:text-foreground'}"
+				: 'text-muted hover:text-foreground'}'
 		>
 			{m.uuid_tab_decoder()}
 		</button>
 		<button
-			type="button"
+			type='button'
 			onclick={() => (activeTab = 'minecraft')}
-			class="relative -mb-px px-4 py-2.5 text-sm font-medium transition-colors {activeTab === 'minecraft'
+			class='relative -mb-px px-4 py-2.5 text-sm font-medium transition-colors {activeTab === 'minecraft'
 				? 'border-b-2 border-accent font-semibold text-accent'
-				: 'text-muted hover:text-foreground'}"
+				: 'text-muted hover:text-foreground'}'
 		>
 			{m.uuid_tab_minecraft()}
 		</button>
@@ -533,116 +533,116 @@
 
 	{#if activeTab === 'generator'}
 		<div>
-			<span class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70">
+			<span class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'>
 				{m.uuid_version_label()}
 			</span>
-			<div class="flex flex-wrap gap-1.5" role="radiogroup" aria-label="UUID version">
+			<div class='flex flex-wrap gap-1.5' role='radiogroup' aria-label='UUID version'>
 				{#each versions as v (v.id)}
 					<button
-						type="button"
-						role="radio"
+						type='button'
+						role='radio'
 						aria-checked={version === v.id}
 						onclick={() => setVersion(v.id)}
-						class="rounded-lg border px-3 py-1.5 font-mono text-xs transition-colors {version === v.id
+						class='rounded-lg border px-3 py-1.5 font-mono text-xs transition-colors {version === v.id
 							? 'border-accent bg-accent/10 font-semibold text-foreground'
-							: 'border-border bg-surface-hover text-muted hover:text-foreground'}"
+							: 'border-border bg-surface-hover text-muted hover:text-foreground'}'
 					>
 						{v.label}
 					</button>
 				{/each}
 			</div>
-			<p class="mt-2 text-[12px] text-muted">
+			<p class='mt-2 text-[12px] text-muted'>
 				{versions.find((v) => v.id === version)?.hint()}
 			</p>
 		</div>
 
 		{#if isNameBased}
-			<div class="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
+			<div class='mt-5 grid grid-cols-1 gap-4 md:grid-cols-2'>
 				<div>
 					<label
-						for="uuid-ns"
-						class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70"
+						for='uuid-ns'
+						class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'
 					>
 						{m.uuid_namespace_label()}
 					</label>
 					<select
-						id="uuid-ns"
+						id='uuid-ns'
 						bind:value={namespace}
-						class="w-full rounded-lg border border-border bg-surface-hover px-3 py-2 text-sm text-foreground outline-none focus:border-accent/60"
+						class='w-full rounded-lg border border-border bg-surface-hover px-3 py-2 text-sm text-foreground outline-none focus:border-accent/60'
 					>
-						<option value="dns">DNS — 6ba7b810-…</option>
-						<option value="url">URL — 6ba7b811-…</option>
-						<option value="oid">OID — 6ba7b812-…</option>
-						<option value="x500">X.500 — 6ba7b814-…</option>
-						<option value="custom">{m.uuid_custom_ns_option()}</option>
+						<option value='dns'>DNS — 6ba7b810-…</option>
+						<option value='url'>URL — 6ba7b811-…</option>
+						<option value='oid'>OID — 6ba7b812-…</option>
+						<option value='x500'>X.500 — 6ba7b814-…</option>
+						<option value='custom'>{m.uuid_custom_ns_option()}</option>
 					</select>
 					{#if namespace === 'custom'}
 						<input
-							type="text"
+							type='text'
 							bind:value={customNamespace}
-							placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-							spellcheck="false"
-							class="mt-2 w-full rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-xs text-foreground outline-none focus:border-accent/60"
+							placeholder='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+							spellcheck='false'
+							class='mt-2 w-full rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-xs text-foreground outline-none focus:border-accent/60'
 						/>
 					{/if}
 				</div>
 				<div>
 					<label
-						for="uuid-names"
-						class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70"
+						for='uuid-names'
+						class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'
 					>
 						{m.uuid_names_input_label()}
 					</label>
 					<textarea
-						id="uuid-names"
+						id='uuid-names'
 						bind:value={names}
-						rows="4"
-						spellcheck="false"
-						placeholder="example.com&#10;example.org&#10;user@example.com"
-						class="w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground outline-none transition-colors focus:border-accent/60"
+						rows='4'
+						spellcheck='false'
+						placeholder='example.com&#10;example.org&#10;user@example.com'
+						class='w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground outline-none transition-colors focus:border-accent/60'
 					></textarea>
 				</div>
 			</div>
 		{:else}
-			<div class="mt-5">
+			<div class='mt-5'>
 				<label
-					for="uuid-qty"
-					class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70"
+					for='uuid-qty'
+					class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'
 				>
 					{m.uuid_quantity_label()}
 				</label>
 				<input
-					id="uuid-qty"
-					type="number"
-					min="1"
-					max="1000"
+					id='uuid-qty'
+					type='number'
+					min='1'
+					max='1000'
 					bind:value={quantity}
-					class="w-32 rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60"
+					class='w-32 rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60'
 				/>
 			</div>
 		{/if}
 
-		<fieldset class="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-			<legend class="sr-only">Format</legend>
-			<label class="inline-flex cursor-pointer items-center gap-2 text-sm text-muted hover:text-foreground">
-				<input type="checkbox" bind:checked={uppercase} class="accent-accent" />
+		<fieldset class='mt-5 flex flex-wrap gap-x-5 gap-y-2'>
+			<legend class='sr-only'>Format</legend>
+			<label class='inline-flex cursor-pointer items-center gap-2 text-sm text-muted hover:text-foreground'>
+				<input type='checkbox' bind:checked={uppercase} class='accent-accent' />
 				<span>{m.uuid_fmt_uppercase()}</span>
 			</label>
-			<label class="inline-flex cursor-pointer items-center gap-2 text-sm text-muted hover:text-foreground">
-				<input type="checkbox" bind:checked={braces} class="accent-accent" />
-				<span>{m.uuid_fmt_braces()} <code class="font-mono text-xs">{'{…}'}</code></span>
+			<label class='inline-flex cursor-pointer items-center gap-2 text-sm text-muted hover:text-foreground'>
+				<input type='checkbox' bind:checked={braces} class='accent-accent' />
+				<span>{m.uuid_fmt_braces()} <code class='font-mono text-xs'>{'{…}'}</code></span>
 			</label>
-			<label class="inline-flex cursor-pointer items-center gap-2 text-sm text-muted hover:text-foreground">
-				<input type="checkbox" bind:checked={noHyphens} class="accent-accent" />
+			<label class='inline-flex cursor-pointer items-center gap-2 text-sm text-muted hover:text-foreground'>
+				<input type='checkbox' bind:checked={noHyphens} class='accent-accent' />
 				<span>{m.uuid_fmt_no_hyphens()}</span>
 			</label>
 		</fieldset>
 
-		<div class="mt-5 flex flex-wrap gap-2">
+		<div class='mt-5 flex flex-wrap gap-2'>
 			<button
-				type="button"
+				type='button'
 				disabled={busy}
-				class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+				class='rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-50'
 				onclick={generate}
 			>
 				{busy ? m.uuid_btn_generating() : uuids.length ? m.uuid_btn_regenerate() : m.uuid_btn_generate()}
@@ -650,36 +650,36 @@
 
 			{#if uuids.length > 0}
 				<button
-					type="button"
-					class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40"
+					type='button'
+					class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40'
 					onclick={() => copy(uuids.join('\n'), 'all')}
 				>
 					{copiedKey === 'all' ? m.tools_copied() : m.uuid_btn_copy_all()}
 				</button>
 				<button
-					type="button"
-					class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40"
+					type='button'
+					class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40'
 					onclick={() => download('txt')}
 				>
 					.txt
 				</button>
 				<button
-					type="button"
-					class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40"
+					type='button'
+					class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40'
 					onclick={() => download('json')}
 				>
 					.json
 				</button>
 				<button
-					type="button"
-					class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40"
+					type='button'
+					class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40'
 					onclick={() => download('csv')}
 				>
 					.csv
 				</button>
 				<button
-					type="button"
-					class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+					type='button'
+					class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground'
 					onclick={clearAll}
 				>
 					{m.tools_clear()}
@@ -688,16 +688,16 @@
 		</div>
 
 		{#if error}
-			<p class="mt-3 break-all font-mono text-xs text-red-400" role="alert">{error}</p>
+			<p class='mt-3 break-all font-mono text-xs text-red-400' role='alert'>{error}</p>
 		{/if}
 
 		{#if uuids.length > 0}
-			<div class="mt-5">
-				<div class="mb-2 flex items-center justify-between">
-					<span class="text-xs font-medium uppercase tracking-widest text-muted/70">
+			<div class='mt-5'>
+				<div class='mb-2 flex items-center justify-between'>
+					<span class='text-xs font-medium uppercase tracking-widest text-muted/70'>
 						{uuids.length} UUID{uuids.length === 1 ? '' : 's'}
 					</span>
-					<span class="font-mono text-[11px] text-muted/60">
+					<span class='font-mono text-[11px] text-muted/60'>
 						{version}
 						{#if isNameBased}· {namespace}{/if}
 						{#if uppercase}· upper{/if}
@@ -705,15 +705,15 @@
 						{#if noHyphens}· no-hyphens{/if}
 					</span>
 				</div>
-				<ul class="max-h-96 space-y-1.5 overflow-y-auto pr-1">
+				<ul class='max-h-96 space-y-1.5 overflow-y-auto pr-1'>
 					{#each uuids as u, i (i)}
 						<li
-							class="flex items-center gap-2 rounded-lg border border-border bg-surface-hover px-3 py-1.5"
+							class='flex items-center gap-2 rounded-lg border border-border bg-surface-hover px-3 py-1.5'
 						>
-							<code class="flex-1 break-all font-mono text-xs text-foreground/80">{u}</code>
+							<code class='flex-1 break-all font-mono text-xs text-foreground/80'>{u}</code>
 							<button
-								type="button"
-								class="shrink-0 rounded-md border border-border px-2 py-0.5 text-[11px] text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+								type='button'
+								class='shrink-0 rounded-md border border-border px-2 py-0.5 text-[11px] text-muted transition-colors hover:border-accent/40 hover:text-foreground'
 								onclick={() => copy(u, i)}
 							>
 								{copiedKey === i ? m.tools_copied() : m.tools_copy()}
@@ -726,87 +726,87 @@
 	{/if}
 
 	{#if activeTab === 'decoder'}
-		<div class="space-y-4">
+		<div class='space-y-4'>
 			<div>
 				<label
-					for="uuid-decode-input"
-					class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70"
+					for='uuid-decode-input'
+					class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'
 				>
 					{m.uuid_dec_input_label()}
 				</label>
-				<div class="flex gap-2">
+				<div class='flex gap-2'>
 					<input
-						id="uuid-decode-input"
-						type="text"
+						id='uuid-decode-input'
+						type='text'
 						bind:value={decodeInput}
 						oninput={runDecoder}
-						placeholder="33af1b9e-c4d0-47ab-9f49-a0ee4ae2c65e or [I; ...]"
-						spellcheck="false"
-						class="flex-1 rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60"
+						placeholder='33af1b9e-c4d0-47ab-9f49-a0ee4ae2c65e or [I; ...]'
+						spellcheck='false'
+						class='flex-1 rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60'
 					/>
 					<button
-						type="button"
+						type='button'
 						onclick={runDecoder}
-						class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90"
+						class='rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90'
 					>
 						{m.uuid_dec_btn_inspect()}
 					</button>
 				</div>
-				<p class="mt-1 text-[11px] text-muted/70">
+				<p class='mt-1 text-[11px] text-muted/70'>
 					{m.uuid_dec_input_hint()}
 				</p>
 			</div>
 
 			{#if decodeError}
-				<p class="font-mono text-xs text-red-400" role="alert">{decodeError}</p>
+				<p class='font-mono text-xs text-red-400' role='alert'>{decodeError}</p>
 			{/if}
 
 			{#if decoded}
-				<div class="mt-4 rounded-xl border border-border/80 bg-surface-hover/60 p-4">
-					<div class="mb-3 flex items-center justify-between">
-						<span class="text-xs font-bold uppercase tracking-wider text-accent">
+				<div class='mt-4 rounded-xl border border-border/80 bg-surface-hover/60 p-4'>
+					<div class='mb-3 flex items-center justify-between'>
+						<span class='text-xs font-bold uppercase tracking-wider text-accent'>
 							{m.uuid_dec_results_title()}
 						</span>
 						<button
-							type="button"
-							class="text-[11px] text-muted transition-colors hover:text-foreground"
+							type='button'
+							class='text-[11px] text-muted transition-colors hover:text-foreground'
 							onclick={() => copy(decoded?.standard ?? '', 'dec-all')}
 						>
 							{copiedKey === 'dec-all' ? m.tools_copied() : m.tools_copy()}
 						</button>
 					</div>
 
-					<dl class="space-y-2.5 font-mono text-xs">
-						<div class="grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4">
-							<dt class="font-sans font-medium text-muted">{m.uuid_dec_field_std()}</dt>
-							<dd class="col-span-2 select-all font-semibold text-foreground">{decoded.standard}</dd>
+					<dl class='space-y-2.5 font-mono text-xs'>
+						<div class='grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4'>
+							<dt class='font-sans font-medium text-muted'>{m.uuid_dec_field_std()}</dt>
+							<dd class='col-span-2 select-all font-semibold text-foreground'>{decoded.standard}</dd>
 						</div>
 
-						<div class="grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4">
-							<dt class="font-sans font-medium text-muted">{m.uuid_dec_field_int()}</dt>
-							<dd class="col-span-2 select-all break-all text-foreground/90">{decoded.singleInteger}</dd>
+						<div class='grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4'>
+							<dt class='font-sans font-medium text-muted'>{m.uuid_dec_field_int()}</dt>
+							<dd class='col-span-2 select-all break-all text-foreground/90'>{decoded.singleInteger}</dd>
 						</div>
 
-						<div class="grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4">
-							<dt class="font-sans font-medium text-muted">{m.uuid_dec_field_version()}</dt>
-							<dd class="col-span-2 font-medium text-foreground">{decoded.version}</dd>
+						<div class='grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4'>
+							<dt class='font-sans font-medium text-muted'>{m.uuid_dec_field_version()}</dt>
+							<dd class='col-span-2 font-medium text-foreground'>{decoded.version}</dd>
 						</div>
 
-						<div class="grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4">
-							<dt class="font-sans font-medium text-muted">{m.uuid_dec_field_variant()}</dt>
-							<dd class="col-span-2 text-foreground/80">{decoded.variant}</dd>
+						<div class='grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4'>
+							<dt class='font-sans font-medium text-muted'>{m.uuid_dec_field_variant()}</dt>
+							<dd class='col-span-2 text-foreground/80'>{decoded.variant}</dd>
 						</div>
 
 						{#each decoded.contents as item (item.label)}
-							<div class="grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4">
-								<dt class="font-sans font-medium text-muted">{item.label}</dt>
-								<dd class="col-span-2 break-all text-foreground/90">{item.value}</dd>
+							<div class='grid grid-cols-1 gap-1 border-b border-border/40 pb-2 sm:grid-cols-3 sm:gap-4'>
+								<dt class='font-sans font-medium text-muted'>{item.label}</dt>
+								<dd class='col-span-2 break-all text-foreground/90'>{item.value}</dd>
 							</div>
 						{/each}
 
-						<div class="grid grid-cols-1 gap-1 pt-1 sm:grid-cols-3 sm:gap-4">
-							<dt class="font-sans font-medium text-muted">{m.uuid_dec_field_mc_nbt()}</dt>
-							<dd class="col-span-2 select-all break-all text-foreground/90">{decoded.minecraftNbt}</dd>
+						<div class='grid grid-cols-1 gap-1 pt-1 sm:grid-cols-3 sm:gap-4'>
+							<dt class='font-sans font-medium text-muted'>{m.uuid_dec_field_mc_nbt()}</dt>
+							<dd class='col-span-2 select-all break-all text-foreground/90'>{decoded.minecraftNbt}</dd>
 						</div>
 					</dl>
 				</div>
@@ -815,82 +815,82 @@
 	{/if}
 
 	{#if activeTab === 'minecraft'}
-		<div class="space-y-4">
+		<div class='space-y-4'>
 			<div>
 				<label
-					for="mc-nick"
-					class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70"
+					for='mc-nick'
+					class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'
 				>
 					{m.uuid_mc_nick_label()}
 				</label>
-				<div class="flex gap-2">
+				<div class='flex gap-2'>
 					<input
-						id="mc-nick"
-						type="text"
+						id='mc-nick'
+						type='text'
 						bind:value={mcUsername}
 						oninput={generateMinecraft}
-						placeholder="Steve"
-						class="flex-1 rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60"
+						placeholder='Steve'
+						class='flex-1 rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60'
 					/>
 					<button
-						type="button"
+						type='button'
 						onclick={generateMinecraft}
-						class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90"
+						class='rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90'
 					>
 						{m.uuid_btn_generate()}
 					</button>
 				</div>
-				<p class="mt-1 text-[11px] text-muted/70">
+				<p class='mt-1 text-[11px] text-muted/70'>
 					{m.uuid_mc_nick_hint()}
 				</p>
 			</div>
 
 			{#if mcResult}
-				<div class="mt-5 space-y-3 rounded-xl border border-border bg-surface-hover/50 p-4">
+				<div class='mt-5 space-y-3 rounded-xl border border-border bg-surface-hover/50 p-4'>
 					<div>
-						<div class="mb-1 flex items-center justify-between text-xs text-muted">
+						<div class='mb-1 flex items-center justify-between text-xs text-muted'>
 							<span>{m.uuid_mc_res_hyphenated()}</span>
 							<button
-								type="button"
-								class="hover:text-foreground"
+								type='button'
+								class='hover:text-foreground'
 								onclick={() => copy(mcResult?.uuid ?? '', 'mc-uuid')}
 							>
 								{copiedKey === 'mc-uuid' ? m.tools_copied() : m.tools_copy()}
 							</button>
 						</div>
-						<code class="block select-all rounded border border-border bg-surface p-2 font-mono text-xs text-foreground">
+						<code class='block select-all rounded border border-border bg-surface p-2 font-mono text-xs text-foreground'>
 							{mcResult.uuid}
 						</code>
 					</div>
 
 					<div>
-						<div class="mb-1 flex items-center justify-between text-xs text-muted">
+						<div class='mb-1 flex items-center justify-between text-xs text-muted'>
 							<span>{m.uuid_mc_res_trimmed()}</span>
 							<button
-								type="button"
-								class="hover:text-foreground"
+								type='button'
+								class='hover:text-foreground'
 								onclick={() => copy(mcResult?.trimmed ?? '', 'mc-trimmed')}
 							>
 								{copiedKey === 'mc-trimmed' ? m.tools_copied() : m.tools_copy()}
 							</button>
 						</div>
-						<code class="block select-all rounded border border-border bg-surface p-2 font-mono text-xs text-foreground/80">
+						<code class='block select-all rounded border border-border bg-surface p-2 font-mono text-xs text-foreground/80'>
 							{mcResult.trimmed}
 						</code>
 					</div>
 
 					<div>
-						<div class="mb-1 flex items-center justify-between text-xs text-muted">
+						<div class='mb-1 flex items-center justify-between text-xs text-muted'>
 							<span>{m.uuid_mc_res_nbt()}</span>
 							<button
-								type="button"
-								class="hover:text-foreground"
+								type='button'
+								class='hover:text-foreground'
 								onclick={() => copy(mcResult?.nbt ?? '', 'mc-nbt')}
 							>
 								{copiedKey === 'mc-nbt' ? m.tools_copied() : m.tools_copy()}
 							</button>
 						</div>
-						<code class="block select-all rounded border border-border bg-surface p-2 font-mono text-xs text-foreground/90">
+						<code class='block select-all rounded border border-border bg-surface p-2 font-mono text-xs text-foreground/90'>
 							{mcResult.nbt}
 						</code>
 					</div>

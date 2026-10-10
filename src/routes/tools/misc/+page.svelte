@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import { resolve } from '$app/paths';
 	import type { Pathname } from '$app/types';
 	import { m } from '$lib/paraglide/messages';
@@ -59,77 +59,77 @@
 	jsonLd={jsonLd}
 />
 
-<section class="mx-auto max-w-5xl scroll-mt-20 px-4 py-12 sm:px-6">
-	<nav aria-label={m.common_breadcrumb_aria()} class="mb-6 text-xs text-muted/70">
-		<a href={resolve(localizeHref('/') as Pathname)} class="hover:text-foreground">{m.common_home()}</a>
-		<span class="mx-2">/</span>
-		<a href={resolve(localizeHref('/tools') as Pathname)} class="hover:text-foreground">{m.common_tools()}</a>
-		<span class="mx-2">/</span>
-		<span class="text-foreground/80">{m.uuid_breadcrumb_title()}</span>
+<section class='mx-auto max-w-5xl scroll-mt-20 px-4 py-12 sm:px-6'>
+	<nav aria-label={m.common_breadcrumb_aria()} class='mb-6 text-xs text-muted/70'>
+		<a href={resolve(localizeHref('/') as Pathname)} class='hover:text-foreground'>{m.common_home()}</a>
+		<span class='mx-2'>/</span>
+		<a href={resolve(localizeHref('/tools') as Pathname)} class='hover:text-foreground'>{m.common_tools()}</a>
+		<span class='mx-2'>/</span>
+		<span class='text-foreground/80'>{m.uuid_breadcrumb_title()}</span>
 	</nav>
 
-	<header class="mb-8">
-		<h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+	<header class='mb-8'>
+		<h1 class='text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl'>
 			{m.uuid_h1()}
 		</h1>
-		<p class="mt-3 max-w-2xl text-pretty leading-relaxed text-muted">
+		<p class='mt-3 max-w-2xl text-pretty leading-relaxed text-muted'>
 			{m.uuid_hero_description()}
 		</p>
 	</header>
 
 	<MiscTool />
 
-	<section class="mt-14 space-y-6">
-		<h2 class="text-2xl font-bold tracking-tight text-foreground">{m.uuid_versions_heading()}</h2>
-		<p class="leading-relaxed text-muted">{m.uuid_versions_intro()}</p>
+	<section class='mt-14 space-y-6'>
+		<h2 class='text-2xl font-bold tracking-tight text-foreground'>{m.uuid_versions_heading()}</h2>
+		<p class='leading-relaxed text-muted'>{m.uuid_versions_intro()}</p>
 
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-			<div class="rounded-xl border border-border bg-surface-hover/30 p-4">
-				<h3 class="font-mono text-base font-semibold text-accent">UUID v1</h3>
-				<p class="mt-1.5 text-xs text-muted leading-relaxed">{m.uuid_v1_desc()}</p>
+		<div class='grid grid-cols-1 gap-4 sm:grid-cols-2'>
+			<div class='rounded-xl border border-border bg-surface-hover/30 p-4'>
+				<h3 class='font-mono text-base font-semibold text-accent'>UUID v1</h3>
+				<p class='mt-1.5 text-xs text-muted leading-relaxed'>{m.uuid_v1_desc()}</p>
 			</div>
-			<div class="rounded-xl border border-border bg-surface-hover/30 p-4">
-				<h3 class="font-mono text-base font-semibold text-accent">UUID v3 & v5</h3>
-				<p class="mt-1.5 text-xs text-muted leading-relaxed">{m.uuid_v3_v5_desc()}</p>
+			<div class='rounded-xl border border-border bg-surface-hover/30 p-4'>
+				<h3 class='font-mono text-base font-semibold text-accent'>UUID v3 & v5</h3>
+				<p class='mt-1.5 text-xs text-muted leading-relaxed'>{m.uuid_v3_v5_desc()}</p>
 			</div>
-			<div class="rounded-xl border border-border bg-surface-hover/30 p-4">
-				<h3 class="font-mono text-base font-semibold text-accent">UUID v4</h3>
-				<p class="mt-1.5 text-xs text-muted leading-relaxed">{m.uuid_v4_desc()}</p>
+			<div class='rounded-xl border border-border bg-surface-hover/30 p-4'>
+				<h3 class='font-mono text-base font-semibold text-accent'>UUID v4</h3>
+				<p class='mt-1.5 text-xs text-muted leading-relaxed'>{m.uuid_v4_desc()}</p>
 			</div>
-			<div class="rounded-xl border border-border bg-surface-hover/30 p-4">
-				<h3 class="font-mono text-base font-semibold text-accent">UUID v7 (RFC 9562)</h3>
-				<p class="mt-1.5 text-xs text-muted leading-relaxed">{m.uuid_v7_desc()}</p>
+			<div class='rounded-xl border border-border bg-surface-hover/30 p-4'>
+				<h3 class='font-mono text-base font-semibold text-accent'>UUID v7 (RFC 9562)</h3>
+				<p class='mt-1.5 text-xs text-muted leading-relaxed'>{m.uuid_v7_desc()}</p>
 			</div>
-			<div class="rounded-xl border border-border bg-surface-hover/30 p-4">
-				<h3 class="font-mono text-base font-semibold text-accent">UUID v6</h3>
-				<p class="mt-1.5 text-xs text-muted leading-relaxed">{m.uuid_v6_desc()}</p>
+			<div class='rounded-xl border border-border bg-surface-hover/30 p-4'>
+				<h3 class='font-mono text-base font-semibold text-accent'>UUID v6</h3>
+				<p class='mt-1.5 text-xs text-muted leading-relaxed'>{m.uuid_v6_desc()}</p>
 			</div>
-			<div class="rounded-xl border border-border bg-surface-hover/30 p-4">
-				<h3 class="font-mono text-base font-semibold text-accent">UUID v8</h3>
-				<p class="mt-1.5 text-xs text-muted leading-relaxed">{m.uuid_v8_desc()}</p>
+			<div class='rounded-xl border border-border bg-surface-hover/30 p-4'>
+				<h3 class='font-mono text-base font-semibold text-accent'>UUID v8</h3>
+				<p class='mt-1.5 text-xs text-muted leading-relaxed'>{m.uuid_v8_desc()}</p>
 			</div>
 		</div>
 	</section>
 
-	<section class="mt-12 space-y-4">
-		<h2 class="text-2xl font-bold tracking-tight text-foreground">{m.uuid_minecraft_heading()}</h2>
-		<p class="leading-relaxed text-muted">{m.uuid_minecraft_info()}</p>
+	<section class='mt-12 space-y-4'>
+		<h2 class='text-2xl font-bold tracking-tight text-foreground'>{m.uuid_minecraft_heading()}</h2>
+		<p class='leading-relaxed text-muted'>{m.uuid_minecraft_info()}</p>
 	</section>
 
-	<section class="mt-12 space-y-4">
-		<h2 class="text-2xl font-bold tracking-tight text-foreground">{m.uuid_faq_heading()}</h2>
-		<div class="space-y-3">
+	<section class='mt-12 space-y-4'>
+		<h2 class='text-2xl font-bold tracking-tight text-foreground'>{m.uuid_faq_heading()}</h2>
+		<div class='space-y-3'>
 			{#each faqs as faq (faq.question)}
-				<details class="group rounded-xl border border-border bg-surface-hover/20 p-4 [&_summary::-webkit-details-marker]:hidden">
-					<summary class="flex cursor-pointer items-center justify-between font-medium text-foreground">
+				<details class='group rounded-xl border border-border bg-surface-hover/20 p-4 [&_summary::-webkit-details-marker]:hidden'>
+					<summary class='flex cursor-pointer items-center justify-between font-medium text-foreground'>
 						<span>{faq.question()}</span>
-						<span class="transition group-open:rotate-180">↓</span>
+						<span class='transition group-open:rotate-180'>↓</span>
 					</summary>
-					<p class="mt-2 text-sm leading-relaxed text-muted">{faq.answer()}</p>
+					<p class='mt-2 text-sm leading-relaxed text-muted'>{faq.answer()}</p>
 				</details>
 			{/each}
 		</div>
 	</section>
 
-	<p class="mt-10 text-center text-xs text-muted/60">{m.tools_privacy_note()}</p>
+	<p class='mt-10 text-center text-xs text-muted/60'>{m.tools_privacy_note()}</p>
 </section>

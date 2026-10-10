@@ -1,10 +1,10 @@
-<script lang="ts">
+<script lang='ts'>
 	import { resolve } from '$app/paths';
 	import type { Pathname } from '$app/types';
 	import { m } from '$lib/paraglide/messages';
+	import StatusBadge from './StatusBadge.svelte';
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
-	import StatusBadge from './StatusBadge.svelte';
 
 	let open = $state(false);
 
@@ -29,18 +29,18 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md"
+	class='sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md'
 >
-	<div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
+	<div class='mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6'>
 		<a
 			href={resolve(localizeHref('/') as Pathname)}
-			class="font-mono text-sm font-semibold tracking-tight text-foreground"
+			class='font-mono text-sm font-semibold tracking-tight text-foreground'
 			onclick={close}
 		>
 			{m.hero_name()}
 		</a>
 
-		<nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+		<nav class='hidden items-center gap-6 md:flex' aria-label='Primary'>
 			{#each links as link (link.href)}
 				<a
 					href={link.kind === 'anchor'
@@ -56,46 +56,46 @@
 					{link.label()}
 					{#if link.kind === 'page'}
 						<svg
-							class="h-3 w-3 opacity-60"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
+							class='h-3 w-3 opacity-60'
+							viewBox='0 0 24 24'
+							fill='none'
+							stroke='currentColor'
+							stroke-width='2'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							aria-hidden='true'
 						>
-							<path d="M5 12h14M13 6l6 6-6 6" />
+							<path d='M5 12h14M13 6l6 6-6 6' />
 						</svg>
 					{/if}
 				</a>
 			{/each}
 		</nav>
 
-		<div class="flex items-center gap-2">
-			<div class="hidden sm:block">
+		<div class='flex items-center gap-2'>
+			<div class='hidden sm:block'>
 				<StatusBadge />
 			</div>
 			<LanguageSwitcher />
 			<button
-				type="button"
-				class="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
-				aria-label="Toggle menu"
+				type='button'
+				class='flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground md:hidden'
+				aria-label='Toggle menu'
 				aria-expanded={open}
 				onclick={() => (open = !open)}
 			>
 				<svg
-					class="h-5 w-5"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
+					class='h-5 w-5'
+					viewBox='0 0 24 24'
+					fill='none'
+					stroke='currentColor'
+					stroke-width='2'
+					stroke-linecap='round'
 				>
 					{#if open}
-						<path d="M18 6 6 18M6 6l12 12" />
+						<path d='M18 6 6 18M6 6l12 12' />
 					{:else}
-						<path d="M4 7h16M4 12h16M4 17h16" />
+						<path d='M4 7h16M4 12h16M4 17h16' />
 					{/if}
 				</svg>
 			</button>
@@ -104,10 +104,10 @@
 
 	{#if open}
 		<nav
-			class="border-t border-border/60 px-4 py-3 md:hidden"
-			aria-label="Mobile"
+			class='border-t border-border/60 px-4 py-3 md:hidden'
+			aria-label='Mobile'
 		>
-			<ul class="flex flex-col gap-1">
+			<ul class='flex flex-col gap-1'>
 				{#each links as link (link.href)}
 					<li>
 						<a
@@ -125,16 +125,16 @@
 							{link.label()}
 							{#if link.kind === 'page'}
 								<svg
-									class="h-3 w-3 opacity-60"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									aria-hidden="true"
+									class='h-3 w-3 opacity-60'
+									viewBox='0 0 24 24'
+									fill='none'
+									stroke='currentColor'
+									stroke-width='2'
+									stroke-linecap='round'
+									stroke-linejoin='round'
+									aria-hidden='true'
 								>
-									<path d="M5 12h14M13 6l6 6-6 6" />
+									<path d='M5 12h14M13 6l6 6-6 6' />
 								</svg>
 							{/if}
 						</a>

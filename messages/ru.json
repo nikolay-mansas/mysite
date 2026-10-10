@@ -381,7 +381,7 @@
   "tools_copy_all": "Копировать все",
   "hmac_computing": "Вычисление…",
   "hmac_key_hint": "Ключ обрабатывается в кодировке UTF-8. Рекомендуется использовать криптографически стойкий секрет длиной не менее размера блока хеш-функции.",
-  
+
   "hmac_seo_title": "Генератор HMAC онлайн: SHA-256, SHA-512, SHA-3, Стрибог ГОСТ, BLAKE2, SM3, Whirlpool | {heroName}",
   "hmac_seo_app_name": "Онлайн генератор подписей HMAC (SHA-2, SHA-3, BLAKE2, Стрибог, SM3, RIPEMD)",
   "hmac_meta_description": "Онлайн расчет HMAC-подписей: HMAC-SHA256, HMAC-SHA512, HMAC-SHA3, BLAKE2b/s, Стрибог ГОСТ, SM3, Whirlpool, MD5 и RIPEMD. Мгновенная аутентификация сообщений в браузере.",

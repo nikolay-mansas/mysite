@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import { untrack } from 'svelte';
 	import { m } from '$lib/paraglide/messages';
 	import {
@@ -120,20 +120,20 @@
 	}
 </script>
 
-<div class="rounded-2xl border border-border bg-surface p-5 sm:p-6 shadow-sm">
-	<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-		<div class="flex-1">
+<div class='rounded-2xl border border-border bg-surface p-5 sm:p-6 shadow-sm'>
+	<div class='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
+		<div class='flex-1'>
 			<label
-				for="codec-select"
-				class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70"
+				for='codec-select'
+				class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'
 			>
 				{m.tools_algorithm()}
 			</label>
 			<select
-				id="codec-select"
+				id='codec-select'
 				value={codecId}
 				onchange={(e) => selectCodec(e.currentTarget.value)}
-				class="w-full rounded-lg border border-border bg-surface-hover px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent/60"
+				class='w-full rounded-lg border border-border bg-surface-hover px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent/60'
 			>
 				{#each codecs as c (c.id)}
 					<option value={c.id}>{c.label}</option>
@@ -141,52 +141,52 @@
 			</select>
 		</div>
 
-		<div class="flex items-center sm:pt-6">
-			<label class="inline-flex cursor-pointer items-center gap-2 text-xs text-muted select-none">
+		<div class='flex items-center sm:pt-6'>
+			<label class='inline-flex cursor-pointer items-center gap-2 text-xs text-muted select-none'>
 				<input
-					type="checkbox"
+					type='checkbox'
 					bind:checked={liveMode}
-					class="rounded border-border accent-accent"
+					class='rounded border-border accent-accent'
 				/>
 				{m.encode_live_mode()}
 			</label>
 		</div>
 	</div>
 
-	<div class="mt-3 flex flex-wrap gap-1.5" aria-label={m.encode_nav_jump_aria()}>
+	<div class='mt-3 flex flex-wrap gap-1.5' aria-label={m.encode_nav_jump_aria()}>
 		{#each codecs as c (c.id)}
 			<button
-				type="button"
+				type='button'
 				onclick={() => selectCodec(c.id)}
-				class="rounded-md border px-2.5 py-1 text-xs transition-colors {codecId === c.id
+				class='rounded-md border px-2.5 py-1 text-xs transition-colors {codecId === c.id
 					? 'border-accent bg-accent/10 font-medium text-foreground'
-					: 'border-border/60 text-muted hover:border-accent/40 hover:text-foreground'}"
+					: 'border-border/60 text-muted hover:border-accent/40 hover:text-foreground'}'
 			>
 				{c.label}
 			</button>
 		{/each}
 	</div>
 
-	<div class="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
+	<div class='mt-6 grid grid-cols-1 gap-5 md:grid-cols-2'>
 		<div>
-			<div class="mb-2 flex items-center justify-between text-xs">
-				<div class="flex items-center gap-2">
+			<div class='mb-2 flex items-center justify-between text-xs'>
+				<div class='flex items-center gap-2'>
 					<label
-						for="codec-input"
-						class="font-medium uppercase tracking-widest text-muted/70"
+						for='codec-input'
+						class='font-medium uppercase tracking-widest text-muted/70'
 					>
 						{m.tools_input()}
 					</label>
 					{#if inputStats.chars > 0}
-						<span class="text-[11px] text-muted/60">
+						<span class='text-[11px] text-muted/60'>
 							({inputStats.chars} {m.encode_chars_label()} / {inputStats.bytes} {m.encode_bytes_label()})
 						</span>
 					{/if}
 				</div>
 				{#if codecInput}
 					<button
-						type="button"
-						class="text-[11px] text-muted transition-colors hover:text-foreground"
+						type='button'
+						class='text-[11px] text-muted transition-colors hover:text-foreground'
 						onclick={() => copy(codecInput, 'in')}
 					>
 						{copiedIn ? m.tools_copied() : m.tools_copy()}
@@ -194,36 +194,36 @@
 				{/if}
 			</div>
 			<textarea
-				id="codec-input"
+				id='codec-input'
 				bind:value={codecInput}
 				onkeydown={onKeydown}
-				rows="8"
-				spellcheck="false"
-				autocapitalize="off"
+				rows='8'
+				spellcheck='false'
+				autocapitalize='off'
 				placeholder={m.encode_input_placeholder()}
-				class="w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground outline-none transition-colors focus:border-accent/60"
+				class='w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground outline-none transition-colors focus:border-accent/60'
 			></textarea>
 		</div>
 
 		<div>
-			<div class="mb-2 flex items-center justify-between text-xs">
-				<div class="flex items-center gap-2">
+			<div class='mb-2 flex items-center justify-between text-xs'>
+				<div class='flex items-center gap-2'>
 					<label
-						for="codec-output"
-						class="font-medium uppercase tracking-widest text-muted/70"
+						for='codec-output'
+						class='font-medium uppercase tracking-widest text-muted/70'
 					>
 						{m.tools_output()}
 					</label>
 					{#if outputStats.chars > 0}
-						<span class="text-[11px] text-muted/60">
+						<span class='text-[11px] text-muted/60'>
 							({outputStats.chars} {m.encode_chars_label()} / {outputStats.bytes} {m.encode_bytes_label()})
 						</span>
 					{/if}
 				</div>
 				{#if codecOutput}
 					<button
-						type="button"
-						class="text-[11px] text-muted transition-colors hover:text-foreground"
+						type='button'
+						class='text-[11px] text-muted transition-colors hover:text-foreground'
 						onclick={() => copy(codecOutput, 'out')}
 					>
 						{copiedOut ? m.tools_copied() : m.tools_copy()}
@@ -231,21 +231,21 @@
 				{/if}
 			</div>
 			<textarea
-				id="codec-output"
+				id='codec-output'
 				readonly
 				value={codecOutput}
-				rows="8"
-				spellcheck="false"
+				rows='8'
+				spellcheck='false'
 				placeholder={m.encode_output_placeholder()}
-				class="w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground/90 outline-none"
+				class='w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground/90 outline-none'
 			></textarea>
 		</div>
 	</div>
 
-	<div class="mt-5 flex flex-wrap items-center gap-2">
+	<div class='mt-5 flex flex-wrap items-center gap-2'>
 		<button
-			type="button"
-			class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
+			type='button'
+			class='rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90'
 			onclick={runEncode}
 			title={m.tools_shortcut_encode()}
 		>
@@ -254,8 +254,8 @@
 
 		{#if !isSelfInverse}
 			<button
-				type="button"
-				class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40"
+				type='button'
+				class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40'
 				onclick={runDecode}
 				title={m.tools_shortcut_decode()}
 			>
@@ -264,8 +264,8 @@
 		{/if}
 
 		<button
-			type="button"
-			class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40 disabled:opacity-40"
+			type='button'
+			class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40 disabled:opacity-40'
 			onclick={swap}
 			disabled={!codecOutput}
 		>
@@ -274,8 +274,8 @@
 
 		{#if codecInput || codecOutput}
 			<button
-				type="button"
-				class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+				type='button'
+				class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground'
 				onclick={clearAll}
 			>
 				{m.tools_clear()}
@@ -284,12 +284,12 @@
 	</div>
 
 	{#if codecError}
-		<p class="mt-3 break-all font-mono text-xs text-red-400" role="alert">
+		<p class='mt-3 break-all font-mono text-xs text-red-400' role='alert'>
 			{codecError}
 		</p>
 	{/if}
 
-	<div class="mt-4 border-t border-border/40 pt-3 text-[11px] text-muted">
+	<div class='mt-4 border-t border-border/40 pt-3 text-[11px] text-muted'>
 		<p>
 			{#if isSelfInverse}
 				{m.tools_hint_self_inverse()}

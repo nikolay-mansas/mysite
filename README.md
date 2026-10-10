@@ -1,4 +1,5 @@
 # MySite
+
 [![MySite CI/CD](https://github.com/nikolay-mansas/mysite/actions/workflows/ci_cd.yml/badge.svg)](https://github.com/nikolay-mansas/mysite/actions/workflows/ci_cd.yml)
 
 A small personal portfolio website built with SvelteKit.

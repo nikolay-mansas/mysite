@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import { page } from '$app/state';
 	import { getLocale, setLocale, locales, baseLocale } from '$lib/paraglide/runtime';
 
@@ -31,18 +31,18 @@
 </script>
 
 <div
-	class="inline-flex items-center rounded-full border border-border bg-surface p-0.5"
-	role="group"
-	aria-label="Language"
+	class='inline-flex items-center rounded-full border border-border bg-surface p-0.5'
+	role='group'
+	aria-label='Language'
 >
 	{#each locales as locale (locale)}
 		<button
-			type="button"
+			type='button'
 			onclick={() => choose(locale)}
 			aria-pressed={current === locale}
-			class="rounded-full px-2.5 py-1 text-xs font-medium transition-colors {current === locale
+			class='rounded-full px-2.5 py-1 text-xs font-medium transition-colors {current === locale
 				? 'bg-accent text-accent-foreground'
-				: 'text-muted hover:text-foreground'}"
+				: 'text-muted hover:text-foreground'}'
 		>
 			{labels[locale] ?? locale.toUpperCase()}
 		</button>

@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import { m } from '$lib/paraglide/messages';
 	import {
 		toHex,
@@ -430,15 +430,15 @@
 	}
 </script>
 
-<div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
+<div class='rounded-2xl border border-border bg-surface p-5 sm:p-6'>
 	<div>
-		<label for="cipher-select" class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70">
+		<label for='cipher-select' class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'>
 			{m.tools_algorithm()}
 		</label>
 		<select
-			id="cipher-select"
+			id='cipher-select'
 			bind:value={cipherId}
-			class="w-full rounded-lg border border-border bg-surface-hover px-3 py-2 text-sm font-medium text-foreground outline-none focus:border-accent/60 sm:w-96"
+			class='w-full rounded-lg border border-border bg-surface-hover px-3 py-2 text-sm font-medium text-foreground outline-none focus:border-accent/60 sm:w-96'
 		>
 			{#each cipherCategories as cat (cat.label)}
 				<optgroup label={cat.label}>
@@ -450,16 +450,16 @@
 		</select>
 	</div>
 
-	<div class="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
+	<div class='mt-5 grid grid-cols-1 gap-4 md:grid-cols-2'>
 		<div>
-			<div class="mb-2 flex items-center justify-between">
-				<label for="cipher-input" class="block text-xs font-medium uppercase tracking-widest text-muted/70">
+			<div class='mb-2 flex items-center justify-between'>
+				<label for='cipher-input' class='block text-xs font-medium uppercase tracking-widest text-muted/70'>
 					{isSignAlgo ? m.cipher_message_to_sign() : cipherId === 'caesar' ? 'Text' : m.tools_input()}
 				</label>
 				{#if cipherInput}
 					<button
-						type="button"
-						class="text-[11px] text-muted transition-colors hover:text-foreground"
+						type='button'
+						class='text-[11px] text-muted transition-colors hover:text-foreground'
 						onclick={() => copy(cipherInput, '__in')}
 					>
 						{copiedKey === '__in' ? m.tools_copied() : m.tools_copy()}
@@ -467,25 +467,25 @@
 				{/if}
 			</div>
 			<textarea
-				id="cipher-input"
+				id='cipher-input'
 				bind:value={cipherInput}
-				rows="6"
-				spellcheck="false"
-				autocapitalize="off"
-				placeholder="Enter text to encrypt, decrypt, sign, or verify..."
-				class="w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground outline-none transition-colors focus:border-accent/60"
+				rows='6'
+				spellcheck='false'
+				autocapitalize='off'
+				placeholder='Enter text to encrypt, decrypt, sign, or verify...'
+				class='w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground outline-none transition-colors focus:border-accent/60'
 			></textarea>
 		</div>
 
 		<div>
-			<div class="mb-2 flex items-center justify-between">
-				<label for="cipher-output" class="block text-xs font-medium uppercase tracking-widest text-muted/70">
+			<div class='mb-2 flex items-center justify-between'>
+				<label for='cipher-output' class='block text-xs font-medium uppercase tracking-widest text-muted/70'>
 					{m.tools_output()}
 				</label>
 				{#if cipherOutput}
 					<button
-						type="button"
-						class="text-[11px] text-muted transition-colors hover:text-foreground"
+						type='button'
+						class='text-[11px] text-muted transition-colors hover:text-foreground'
 						onclick={() => copy(cipherOutput, 'out')}
 					>
 						{copiedKey === 'out' ? m.tools_copied() : m.tools_copy()}
@@ -493,67 +493,67 @@
 				{/if}
 			</div>
 			<textarea
-				id="cipher-output"
+				id='cipher-output'
 				readonly
 				value={cipherOutput}
-				rows="6"
-				spellcheck="false"
-				placeholder="Output appears here..."
-				class="w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground/80 outline-none"
+				rows='6'
+				spellcheck='false'
+				placeholder='Output appears here...'
+				class='w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground/80 outline-none'
 			></textarea>
 		</div>
 	</div>
 
 	{#if isSignAlgo}
-		<div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+		<div class='mt-4 flex flex-col gap-3 sm:flex-row sm:items-center'>
 			{#if cipherId === 'ecc-ecdsa'}
-				<div class="w-full sm:w-64">
-					<label for="ecdsa-fmt" class="mb-1 block text-xs font-medium uppercase tracking-widest text-muted/70">
+				<div class='w-full sm:w-64'>
+					<label for='ecdsa-fmt' class='mb-1 block text-xs font-medium uppercase tracking-widest text-muted/70'>
 						{m.cipher_ecdsa_format()}
 					</label>
 					<select
-						id="ecdsa-fmt"
+						id='ecdsa-fmt'
 						bind:value={ecdsaFormat}
-						class="w-full rounded-lg border border-border bg-surface-hover px-3 py-2 text-xs font-medium text-foreground outline-none focus:border-accent/60"
+						class='w-full rounded-lg border border-border bg-surface-hover px-3 py-2 text-xs font-medium text-foreground outline-none focus:border-accent/60'
 					>
-						<option value="der">{m.cipher_ecdsa_fmt_der()}</option>
-						<option value="p1363">{m.cipher_ecdsa_fmt_p1363()}</option>
+						<option value='der'>{m.cipher_ecdsa_fmt_der()}</option>
+						<option value='p1363'>{m.cipher_ecdsa_fmt_p1363()}</option>
 					</select>
 				</div>
 			{/if}
-			<div class="flex-1">
-				<label for="cipher-signature" class="mb-1 block text-xs font-medium uppercase tracking-widest text-muted/70">
+			<div class='flex-1'>
+				<label for='cipher-signature' class='mb-1 block text-xs font-medium uppercase tracking-widest text-muted/70'>
 					{m.cipher_signature_field()}
 				</label>
 				<input
-					id="cipher-signature"
-					type="text"
+					id='cipher-signature'
+					type='text'
 					bind:value={signatureInput}
-					placeholder="Paste hex signature (DER or raw) to verify..."
-					class="w-full rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-xs text-foreground outline-none focus:border-accent/60"
+					placeholder='Paste hex signature (DER or raw) to verify...'
+					class='w-full rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-xs text-foreground outline-none focus:border-accent/60'
 				/>
 			</div>
 		</div>
 	{/if}
 
 	{#if isAsymmetric}
-		<div class="mt-5 rounded-xl border border-border bg-surface-hover/50 p-4">
-			<div class="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
-				<span class="text-xs font-semibold uppercase tracking-wider text-foreground">
+		<div class='mt-5 rounded-xl border border-border bg-surface-hover/50 p-4'>
+			<div class='flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3'>
+				<span class='text-xs font-semibold uppercase tracking-wider text-foreground'>
 					{m.cipher_asymmetric_key_manager()}
 				</span>
-				<div class="flex flex-wrap items-center gap-2">
+				<div class='flex flex-wrap items-center gap-2'>
 					<button
-						type="button"
-						class="rounded-md bg-accent/20 px-2.5 py-1 text-xs font-medium text-accent hover:bg-accent/30"
+						type='button'
+						class='rounded-md bg-accent/20 px-2.5 py-1 text-xs font-medium text-accent hover:bg-accent/30'
 						onclick={generateNewKeys}
 					>
 						{m.cipher_generate_keypair()}
 					</button>
 					{#if isKeyExchange}
 						<button
-							type="button"
-							class="rounded-md border border-border px-2.5 py-1 text-xs text-muted hover:text-foreground"
+							type='button'
+							class='rounded-md border border-border px-2.5 py-1 text-xs text-muted hover:text-foreground'
 							onclick={deriveOnlySharedSecret}
 						>
 							{m.cipher_btn_exchange()}
@@ -561,8 +561,8 @@
 					{/if}
 					{#if publicKey}
 						<button
-							type="button"
-							class="rounded-md border border-border px-2.5 py-1 text-xs text-muted hover:text-foreground"
+							type='button'
+							class='rounded-md border border-border px-2.5 py-1 text-xs text-muted hover:text-foreground'
 							onclick={() => downloadTextFile(publicKey, `${cipherId}-public.key`)}
 						>
 							{m.cipher_download_pub()}
@@ -570,8 +570,8 @@
 					{/if}
 					{#if privateKey}
 						<button
-							type="button"
-							class="rounded-md border border-border px-2.5 py-1 text-xs text-muted hover:text-foreground"
+							type='button'
+							class='rounded-md border border-border px-2.5 py-1 text-xs text-muted hover:text-foreground'
 							onclick={() => downloadTextFile(privateKey, `${cipherId}-private.key`)}
 						>
 							{m.cipher_download_priv()}
@@ -580,89 +580,89 @@
 				</div>
 			</div>
 
-			<div class="mt-3 grid grid-cols-1 gap-4 md:grid-cols-2">
+			<div class='mt-3 grid grid-cols-1 gap-4 md:grid-cols-2'>
 				<div>
-					<label for="asym-pub" class="mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted/80">
+					<label for='asym-pub' class='mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted/80'>
 						{m.cipher_pubkey_label()}
 					</label>
 					<textarea
-						id="asym-pub"
+						id='asym-pub'
 						bind:value={publicKey}
-						rows="4"
-						placeholder="Paste or generate Public Key (PEM or Hex)..."
-						class="w-full rounded-lg border border-border bg-surface p-2 font-mono text-[11px] text-foreground outline-none focus:border-accent/60"
+						rows='4'
+						placeholder='Paste or generate Public Key (PEM or Hex)...'
+						class='w-full rounded-lg border border-border bg-surface p-2 font-mono text-[11px] text-foreground outline-none focus:border-accent/60'
 					></textarea>
 				</div>
 				<div>
-					<label for="asym-priv" class="mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted/80">
+					<label for='asym-priv' class='mb-1 block text-[11px] font-medium uppercase tracking-wider text-muted/80'>
 						{m.cipher_privkey_label()}
 					</label>
 					<textarea
-						id="asym-priv"
+						id='asym-priv'
 						bind:value={privateKey}
-						rows="4"
-						placeholder="Paste or generate Private Key (PEM or Hex)..."
-						class="w-full rounded-lg border border-border bg-surface p-2 font-mono text-[11px] text-foreground outline-none focus:border-accent/60"
+						rows='4'
+						placeholder='Paste or generate Private Key (PEM or Hex)...'
+						class='w-full rounded-lg border border-border bg-surface p-2 font-mono text-[11px] text-foreground outline-none focus:border-accent/60'
 					></textarea>
 				</div>
 			</div>
 		</div>
 	{:else if cipherId === 'caesar'}
-		<div class="mt-4">
-			<label for="cipher-shift" class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70">
+		<div class='mt-4'>
+			<label for='cipher-shift' class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'>
 				Shift (−25 … 25)
 			</label>
 			<input
-				id="cipher-shift"
-				type="number"
-				min="-25"
-				max="25"
+				id='cipher-shift'
+				type='number'
+				min='-25'
+				max='25'
 				bind:value={cipherShift}
-				class="w-32 rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60"
+				class='w-32 rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60'
 			/>
 		</div>
 	{:else}
-		<div class="mt-4">
-			<label for="cipher-key" class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70">
+		<div class='mt-4'>
+			<label for='cipher-key' class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'>
 				{m.tools_key()}
 			</label>
 			<input
-				id="cipher-key"
-				type="text"
+				id='cipher-key'
+				type='text'
 				bind:value={cipherKey}
-				placeholder="Encryption password or key..."
-				spellcheck="false"
-				class="w-full rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60 sm:w-96"
+				placeholder='Encryption password or key...'
+				spellcheck='false'
+				class='w-full rounded-lg border border-border bg-surface-hover px-3 py-2 font-mono text-sm text-foreground outline-none focus:border-accent/60 sm:w-96'
 			/>
-			<p class="mt-1 text-[11px] text-muted/60">
+			<p class='mt-1 text-[11px] text-muted/60'>
 				{m.cipher_sym_key_hint()}
 			</p>
 		</div>
 	{/if}
 
-	<div class="mt-5 flex flex-wrap gap-2">
+	<div class='mt-5 flex flex-wrap gap-2'>
 		<button
-			type="button"
+			type='button'
 			disabled={cipherBusy}
-			class="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+			class='rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-50'
 			onclick={encrypt}
 		>
 			{cipherBusy ? m.cipher_processing() : isSignAlgo ? m.cipher_btn_sign() : m.tools_encrypt()}
 		</button>
 
 		<button
-			type="button"
+			type='button'
 			disabled={cipherBusy}
-			class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40 disabled:opacity-50"
+			class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40 disabled:opacity-50'
 			onclick={decrypt}
 		>
 			{isSignAlgo ? m.cipher_btn_verify() : m.tools_decrypt()}
 		</button>
 
 		<button
-			type="button"
+			type='button'
 			disabled={!cipherOutput}
-			class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40 disabled:opacity-50"
+			class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/40 disabled:opacity-50'
 			onclick={swap}
 		>
 			{m.tools_swap()}
@@ -670,8 +670,8 @@
 
 		{#if cipherInput || cipherOutput || signatureInput}
 			<button
-				type="button"
-				class="rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground"
+				type='button'
+				class='rounded-lg border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-accent/40 hover:text-foreground'
 				onclick={clearAll}
 			>
 				{m.tools_clear()}
@@ -680,6 +680,6 @@
 	</div>
 
 	{#if cipherError}
-		<p class="mt-3 break-all font-mono text-xs text-red-400" role="alert">{cipherError}</p>
+		<p class='mt-3 break-all font-mono text-xs text-red-400' role='alert'>{cipherError}</p>
 	{/if}
 </div>

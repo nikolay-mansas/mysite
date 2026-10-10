@@ -18,7 +18,7 @@
 import type { Component } from "svelte";
 import Telegram from "$lib/icons/Telegram.svelte";
 import Discord from "$lib/icons/Discord.svelte";
-// import Github from "$lib/icons/Github.svelte";
+// import Github from '$lib/icons/Github.svelte';
 import Mail from "$lib/icons/Mail.svelte";
 
 /* -------------------------------------------------------------------------- */
@@ -73,9 +73,9 @@ export const SOCIALS: Social[] = [
     icon: Discord,
   },
   // {
-  //   name: "GitHub",
-  //   handle: "yourhandle",
-  //   url: "https://github.com/yourhandle",
+  //   name: 'GitHub',
+  //   handle: 'yourhandle',
+  //   url: 'https://github.com/yourhandle',
   //   icon: Github,
   // },
   {
@@ -88,7 +88,7 @@ export const SOCIALS: Social[] = [
 
 /* -------------------------------------------------------------------------- */
 /*  PROJECTS / EXPERIENCE                                                     */
-/*  `image` is an OPTIONAL filename in your S3 bucket (leave "" for none).    */
+/*  `image` is an OPTIONAL filename in your S3 bucket (leave '' for none).    */
 /*  Text keys map to messages/en.json + messages/ru.json.                     */
 /* -------------------------------------------------------------------------- */
 export interface Project {
@@ -96,11 +96,11 @@ export interface Project {
   titleKey: string;
   shortKey: string;
   longKey: string;
-  /** "solo" or "team" */
+  /** 'solo' or 'team' */
   role: "solo" | "team";
-  /** Optional S3 image filename, e.g. "projects/dashboard.jpg". "" = no image */
+  /** Optional S3 image filename, e.g. 'projects/dashboard.jpg'. '' = no image */
   image: string;
-  /** Optional external link. "" = hide the visit button. */
+  /** Optional external link. '' = hide the visit button. */
   link: string;
   /** Tech tags shown as chips. */
   tags: string[];
@@ -127,7 +127,14 @@ export const PROJECTS: Project[] = [
     role: "team",
     image: "projects/telegram-phone.webp",
     link: "",
-    tags: ["Python", "FFmpeg", "Multithreading", "Celery", "Redis", "aiogram-dialog"],
+    tags: [
+      "Python",
+      "FFmpeg",
+      "Multithreading",
+      "Celery",
+      "Redis",
+      "aiogram-dialog",
+    ],
     year: "2022",
   },
   {
@@ -138,7 +145,14 @@ export const PROJECTS: Project[] = [
     role: "solo",
     image: "projects/animeviewer.webp",
     link: "",
-    tags: ["Fastapi", "Svelte5", "REST API", "SQLAlchemy", "PostgreSQL", "Redis"],
+    tags: [
+      "Fastapi",
+      "Svelte5",
+      "REST API",
+      "SQLAlchemy",
+      "PostgreSQL",
+      "Redis",
+    ],
     year: "2023",
   },
   {
@@ -171,7 +185,15 @@ export const PROJECTS: Project[] = [
     role: "solo",
     image: "projects/wb-bot.webp",
     link: "",
-    tags: ["Python", "Aiogram", "SQLAlchemy", "aiogram-dialog", "PostgreSQL", "Redis", "Cryptography"],
+    tags: [
+      "Python",
+      "Aiogram",
+      "SQLAlchemy",
+      "aiogram-dialog",
+      "PostgreSQL",
+      "Redis",
+      "Cryptography",
+    ],
     year: "2026",
   },
   {
@@ -182,7 +204,15 @@ export const PROJECTS: Project[] = [
     role: "solo",
     image: "projects/sik_rasp.webp",
     link: "https://xn--h1aet.su",
-    tags: ["Aiogram", "SQLAlchemy", "aiogram-dialog", "PostgreSQL", "Redis", "RabbitMQ", "K8S"],
+    tags: [
+      "Aiogram",
+      "SQLAlchemy",
+      "aiogram-dialog",
+      "PostgreSQL",
+      "Redis",
+      "RabbitMQ",
+      "K8S",
+    ],
     year: "2026",
   },
 ];
@@ -194,7 +224,8 @@ export const SITE = {
   url: "https://ddkira.ru",
   twitter: "@DDKira",
   ogImage: "og-cover.png",
-  keywords: 'Python developer, Backend engineer, FastAPI, PostgreSQL, high-load, microservices, automation, Svelte, portfolio',
+  keywords:
+    "Python developer, Backend engineer, FastAPI, PostgreSQL, high-load, microservices, automation, Svelte, portfolio",
 };
 
 export interface Experience {
@@ -209,57 +240,57 @@ export interface Experience {
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: 'exp1',
-    companyKey: 'experience.company1',
-    roleKey: 'experience.role1',
-    periodKey: 'experience.period1',
-    descriptionKey: 'experience.desc1',
+    id: "exp1",
+    companyKey: "experience.company1",
+    roleKey: "experience.role1",
+    periodKey: "experience.period1",
+    descriptionKey: "experience.desc1",
     current: false,
   },
   {
-    id: 'exp2',
-    companyKey: 'experience.company2',
-    roleKey: 'experience.role2',
-    periodKey: 'experience.period2',
-    descriptionKey: 'experience.desc2',
-    link: 'https://www.aerodar.ru/',
+    id: "exp2",
+    companyKey: "experience.company2",
+    roleKey: "experience.role2",
+    periodKey: "experience.period2",
+    descriptionKey: "experience.desc2",
+    link: "https://www.aerodar.ru/",
   },
   {
-    id: 'exp3',
-    companyKey: 'experience.company3',
-    roleKey: 'experience.role3',
-    periodKey: 'experience.period3',
-    descriptionKey: 'experience.desc3',
+    id: "exp3",
+    companyKey: "experience.company3",
+    roleKey: "experience.role3",
+    periodKey: "experience.period3",
+    descriptionKey: "experience.desc3",
   },
   {
-    id: 'exp4',
-    companyKey: 'experience.company4',
-    roleKey: 'experience.role4',
-    periodKey: 'experience.period4',
-    descriptionKey: 'experience.desc4',
+    id: "exp4",
+    companyKey: "experience.company4",
+    roleKey: "experience.role4",
+    periodKey: "experience.period4",
+    descriptionKey: "experience.desc4",
   },
   {
-    id: 'exp5',
-    companyKey: 'experience.company5',
-    roleKey: 'experience.role5',
-    periodKey: 'experience.period5',
-    descriptionKey: 'experience.desc5',
+    id: "exp5",
+    companyKey: "experience.company5",
+    roleKey: "experience.role5",
+    periodKey: "experience.period5",
+    descriptionKey: "experience.desc5",
   },
 ];
 
 export const SKILLS = [
-  'Python',
-  'FastAPI',
-  'PostgreSQL',
-  'Redis',
-  'SQLAlchemy',
-  'REST API',
-  'Async Programming',
-  'Docker',
-  'Linux',
-  'Git',
-  'CI/CD (GitHub Actions)',
-  'K8S',
-  'RabbitMQ',
-  'GRPC'
+  "Python",
+  "FastAPI",
+  "PostgreSQL",
+  "Redis",
+  "SQLAlchemy",
+  "REST API",
+  "Async Programming",
+  "Docker",
+  "Linux",
+  "Git",
+  "CI/CD (GitHub Actions)",
+  "K8S",
+  "RabbitMQ",
+  "GRPC",
 ];

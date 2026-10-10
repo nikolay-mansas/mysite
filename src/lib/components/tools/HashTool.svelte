@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import { m } from '$lib/paraglide/messages';
 	import { md5 } from 'pure-md5';
 	import {
@@ -63,28 +63,28 @@
 	});
 </script>
 
-<div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
-	<label for="hash-input" class="mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70">
+<div class='rounded-2xl border border-border bg-surface p-5 sm:p-6'>
+	<label for='hash-input' class='mb-2 block text-xs font-medium uppercase tracking-widest text-muted/70'>
 		{m.tools_input()}
 	</label>
 	<textarea
-		id="hash-input"
+		id='hash-input'
 		bind:value={hashInput}
-		rows="4"
-		spellcheck="false"
-		class="w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground outline-none transition-colors focus:border-accent/60"
+		rows='4'
+		spellcheck='false'
+		class='w-full resize-y rounded-lg border border-border bg-surface-hover p-3 font-mono text-sm text-foreground outline-none transition-colors focus:border-accent/60'
 	></textarea>
 
-	<div class="mt-5 space-y-2">
+	<div class='mt-5 space-y-2'>
 		{#each Object.entries(hashResults) as [name, hex] (name)}
 			{#if name !== '__error'}
-				<div class="flex items-start gap-3 rounded-lg border border-border bg-surface-hover px-3 py-2">
-					<span class="w-28 shrink-0 pt-0.5 font-mono text-[11px] uppercase text-accent">{name}</span>
-					<code class="flex-1 break-all font-mono text-xs text-foreground/80">{hex}</code>
+				<div class='flex items-start gap-3 rounded-lg border border-border bg-surface-hover px-3 py-2'>
+					<span class='w-28 shrink-0 pt-0.5 font-mono text-[11px] uppercase text-accent'>{name}</span>
+					<code class='flex-1 break-all font-mono text-xs text-foreground/80'>{hex}</code>
 					<CopyButton text={hex} keyName={name} copiedKey={copiedKey} />
 				</div>
 			{:else}
-				<p class="text-sm text-red-400">{hex}</p>
+				<p class='text-sm text-red-400'>{hex}</p>
 			{/if}
 		{/each}
 	</div>
