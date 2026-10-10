@@ -4,106 +4,94 @@
 	import type { Pathname } from '$app/types';
 	import { m } from '$lib/paraglide/messages';
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import { page } from '$app/state';
+	import { buildSeoUrls } from '$lib/seo';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 
-	const canonical = `${SITE.url}/tools`;
+	let urls = $derived(buildSeoUrls(page.url.pathname));
 
 	const toolCards = $derived([
 		{
 			href: '/tools/hash',
 			title: m.tool_hash_title(),
 			desc: m.tools_hub_hash_desc(),
-			tags: ['SHA-256', 'SHA-512', 'Keccak', 'Стрибог ГОСТ', 'BLAKE2', 'xxHash', 'CRC32'],
+			tags: ['SHA-256', 'SHA-512', 'Keccak', 'Streebog', 'BLAKE2', 'xxHash', 'CRC32']
 		},
 		{
 			href: '/tools/cipher',
 			title: m.tools_tab_cipher(),
 			desc: m.tools_hub_cipher_desc(),
-			tags: ['AES-GCM', 'ChaCha20', 'RSA-2048', 'ML-KEM (Kyber)', 'ECDSA', 'Diffie-Hellman'],
+			tags: ['AES-GCM', 'ChaCha20', 'RSA-2048', 'ML-KEM (Kyber)', 'ECDSA', 'Diffie-Hellman']
 		},
 		{
 			href: '/tools/hmac',
 			title: m.tool_hmac_title(),
 			desc: m.tools_hub_hmac_desc(),
-			tags: ['HMAC-SHA256', 'HMAC-SHA512', 'HMAC-SHA3', 'HMAC-Стрибог', 'HMAC-SM3', 'JWT HS256'],
+			tags: ['HMAC-SHA256', 'HMAC-SHA512', 'HMAC-SHA3', 'HMAC-Streebog', 'HMAC-SM3', 'JWT HS256']
 		},
 		{
 			href: '/tools/encode',
 			title: m.tool_encode_title(),
 			desc: m.tools_hub_encode_desc(),
-			tags: ['Base64', 'Base64 URL', 'Hex', 'Base32', 'URL percent', 'Binary', 'ROT13'],
+			tags: ['Base64', 'Base64 URL', 'Hex', 'Base32', 'URL percent', 'Binary', 'ROT13']
 		},
 		{
 			href: '/tools/misc',
 			title: m.uuid_breadcrumb_title(),
 			desc: m.tools_hub_misc_desc(),
-			tags: ['UUID v4', 'UUID v7', 'Minecraft UUID', 'UUID Inspector', 'RFC 9562'],
-		},
+			tags: ['UUID v4', 'UUID v7', 'Minecraft UUID', 'UUID Inspector', 'RFC 9562']
+		}
 	]);
 
 	const faq = $derived([
 		{ q: m.tools_hub_faq_q1(), a: m.tools_hub_faq_a1() },
 		{ q: m.tools_hub_faq_q2(), a: m.tools_hub_faq_a2() },
-		{ q: m.tools_hub_faq_q3(), a: m.tools_hub_faq_a3() },
+		{ q: m.tools_hub_faq_q3(), a: m.tools_hub_faq_a3() }
 	]);
 
-	const jsonLd = $derived(
-		JSON.stringify({
-			'@context': 'https://schema.org',
-			'@graph': [
-				{
-					'@type': 'CollectionPage',
-					name: m.tools_hub_seo_app_name(),
-					url: canonical,
-					description: m.tools_hub_meta_description(),
-					hasPart: toolCards.map((g) => ({
-						'@type': 'WebApplication',
-						name: g.title,
-						url: `${SITE.url}${g.href}`,
-						applicationCategory: 'DeveloperApplication',
-						operatingSystem: 'Any',
-						offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-					})),
-				},
-				{
-					'@type': 'BreadcrumbList',
-					itemListElement: [
-						{ '@type': 'ListItem', position: 1, name: m.common_home(), item: SITE.url },
-						{ '@type': 'ListItem', position: 2, name: m.common_tools(), item: canonical },
-					],
-				},
-				{
-					'@type': 'FAQPage',
-					mainEntity: faq.map((f) => ({
-						'@type': 'Question',
-						name: f.q,
-						acceptedAnswer: { '@type': 'Answer', text: f.a },
-					})),
-				},
-			],
-		})
-	);
-	const scriptClose = '</scr' + 'ipt>';
+	const jsonLd = $derived({
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'CollectionPage',
+				name: m.tools_hub_seo_app_name(),
+				url: urls.canonical,
+				description: m.tools_hub_meta_description(),
+				hasPart: toolCards.map((g) => ({
+					'@type': 'WebApplication',
+					name: g.title,
+					url: `${SITE.url}${urls.localePrefix}${g.href}`,
+					applicationCategory: 'DeveloperApplication',
+					operatingSystem: 'Any',
+					offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
+				}))
+			},
+			{
+				'@type': 'BreadcrumbList',
+				itemListElement: [
+					{ '@type': 'ListItem', position: 1, name: m.common_home(), item: urls.homeUrl },
+					{ '@type': 'ListItem', position: 2, name: m.common_tools(), item: urls.canonical }
+				]
+			},
+			{
+				'@type': 'FAQPage',
+				mainEntity: faq.map((f) => ({
+					'@type': 'Question',
+					name: f.q,
+					acceptedAnswer: { '@type': 'Answer', text: f.a }
+				}))
+			}
+		]
+	});
 </script>
 
-<svelte:head>
-	<title>{m.tools_hub_seo_title({ heroName: m.hero_name() })}</title>
-	<meta name="description" content={m.tools_hub_meta_description()} />
-	<meta name="keywords" content={m.tools_hub_meta_keywords()} />
-	<link rel="canonical" href={canonical} />
-	<meta name="robots" content="index, follow" />
-
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content={m.tools_hub_og_title()} />
-	<meta property="og:description" content={m.tools_hub_meta_description()} />
-	<meta property="og:url" content={canonical} />
-
-	<link rel="alternate" hreflang="en" href={canonical} />
-	<link rel="alternate" hreflang="ru" href={`${SITE.url}/ru/tools`} />
-	<link rel="alternate" hreflang="x-default" href={canonical} />
-
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html `<script type="application/ld+json">${jsonLd}${scriptClose}`}
-</svelte:head>
+<SeoHead
+	title={m.tools_hub_seo_title({ heroName: m.hero_name() })}
+	description={m.tools_hub_meta_description()}
+	keywords={m.tools_hub_meta_keywords()}
+	ogTitle={m.tools_hub_og_title()}
+	jsonLd={jsonLd}
+/>
 
 <section class="mx-auto max-w-5xl scroll-mt-20 px-4 py-12 sm:px-6">
 	<nav aria-label={m.common_breadcrumb_aria()} class="mb-6 text-xs text-muted/70">
@@ -133,13 +121,9 @@
 							<h2 class="text-lg font-semibold tracking-tight text-foreground group-hover:text-accent">
 								{card.title}
 							</h2>
-							<span class="font-mono text-xs text-accent opacity-0 transition-opacity group-hover:opacity-100">
-								→
-							</span>
+							<span class="font-mono text-xs text-accent opacity-0 transition-opacity group-hover:opacity-100">→</span>
 						</div>
-						<p class="mt-2.5 text-sm leading-relaxed text-muted">
-							{card.desc}
-						</p>
+						<p class="mt-2.5 text-sm leading-relaxed text-muted">{card.desc}</p>
 					</div>
 
 					<ul class="mt-5 flex flex-wrap gap-1.5" aria-label="Algorithms and formats">
@@ -155,24 +139,16 @@
 	</div>
 
 	<section class="mt-14">
-		<h2 class="text-2xl font-bold tracking-tight text-foreground">
-			{m.hash_faq_heading()}
-		</h2>
+		<h2 class="text-2xl font-bold tracking-tight text-foreground">{m.hash_faq_heading()}</h2>
 		<div class="mt-6 space-y-3">
 			{#each faq as item (item.q)}
 				<details class="group rounded-xl border border-border bg-surface p-4">
-					<summary class="cursor-pointer list-none text-sm font-semibold text-foreground marker:hidden">
-						{item.q}
-					</summary>
-					<p class="mt-2.5 text-sm leading-relaxed text-muted">
-						{item.a}
-					</p>
+					<summary class="cursor-pointer list-none text-sm font-semibold text-foreground marker:hidden">{item.q}</summary>
+					<p class="mt-2.5 text-sm leading-relaxed text-muted">{item.a}</p>
 				</details>
 			{/each}
 		</div>
 	</section>
 
-	<p class="mt-12 text-center text-xs text-muted/60">
-		{m.tools_privacy_note()}
-	</p>
+	<p class="mt-12 text-center text-xs text-muted/60">{m.tools_privacy_note()}</p>
 </section>

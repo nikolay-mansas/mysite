@@ -1,14 +1,16 @@
 <script lang="ts">
 	import CipherTool from '$lib/components/tools/CipherTool.svelte';
-	import { SITE } from '$lib/config';
 	import { resolve } from '$app/paths';
 	import type { Pathname } from '$app/types';
 	import { m } from '$lib/paraglide/messages';
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import { page } from '$app/state';
+	import { buildSeoUrls } from '$lib/seo';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 
-	const canonical = `${SITE.url}/tools/cipher`;
+	let urls = $derived(buildSeoUrls(page.url.pathname));
 
-	const algoSections = [
+	const algoSections = $derived([
 		{ id: 'aes', name: 'AES (128, 192, 256, 512)', bits: '128–512', desc: m.cipher_desc_aes() },
 		{ id: 'chacha20', name: 'ChaCha20 (Stream)', bits: '256', desc: m.cipher_desc_chacha() },
 		{ id: 'twofish', name: 'Twofish', bits: '128–256', desc: m.cipher_desc_twofish() },
@@ -22,9 +24,9 @@
 		{ id: 'dh', name: 'Diffie-Hellman Key Exchange', bits: '2048', desc: m.cipher_desc_dh() },
 		{ id: 'ml-kem', name: 'ML-KEM (512, 768, 1024 FIPS 203)', bits: 'Lattice KEM', desc: m.cipher_desc_ml_kem() },
 		{ id: 'ml-dsa', name: 'ML-DSA (Dilithium-65 FIPS 204)', bits: 'Lattice Sign', desc: m.cipher_desc_ml_dsa() }
-	];
+	]);
 
-	const faq = [
+	const faq = $derived([
 		{ q: m.cipher_faq_q1(), a: m.cipher_faq_a1() },
 		{ q: m.cipher_faq_q2(), a: m.cipher_faq_a2() },
 		{ q: m.cipher_faq_q3(), a: m.cipher_faq_a3() },
@@ -33,16 +35,16 @@
 		{ q: m.cipher_faq_q6(), a: m.cipher_faq_a6() },
 		{ q: m.cipher_faq_q7(), a: m.cipher_faq_a7() },
 		{ q: m.cipher_faq_q8(), a: m.cipher_faq_a8() },
-		{ q: m.cipher_faq_q9(), a: m.cipher_faq_a9() },
-	];
+		{ q: m.cipher_faq_q9(), a: m.cipher_faq_a9() }
+	]);
 
-	const jsonLd = JSON.stringify({
+	const jsonLd = $derived({
 		'@context': 'https://schema.org',
 		'@graph': [
 			{
 				'@type': 'WebApplication',
 				name: m.cipher_seo_app_name(),
-				url: canonical,
+				url: urls.canonical,
 				applicationCategory: 'SecurityApplication',
 				operatingSystem: 'Any',
 				description: m.cipher_meta_description(),
@@ -52,9 +54,9 @@
 			{
 				'@type': 'BreadcrumbList',
 				itemListElement: [
-					{ '@type': 'ListItem', position: 1, name: m.common_home(), item: SITE.url },
-					{ '@type': 'ListItem', position: 2, name: m.common_tools(), item: `${SITE.url}/tools` },
-					{ '@type': 'ListItem', position: 3, name: m.cipher_breadcrumb_title(), item: canonical }
+					{ '@type': 'ListItem', position: 1, name: m.common_home(), item: urls.homeUrl },
+					{ '@type': 'ListItem', position: 2, name: m.common_tools(), item: urls.toolsUrl },
+					{ '@type': 'ListItem', position: 3, name: m.cipher_breadcrumb_title(), item: urls.canonical }
 				]
 			},
 			{
@@ -67,25 +69,15 @@
 			}
 		]
 	});
-	const scriptClose = '</scr' + 'ipt>';
 </script>
 
-<svelte:head>
-	<title>{m.cipher_seo_title({ heroName: m.hero_name() })}</title>
-	<meta name="description" content={m.cipher_meta_description()} />
-	<meta name="keywords" content={m.cipher_meta_keywords()} />
-	<link rel="canonical" href={canonical} />
-	<meta name="robots" content="index, follow" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content={m.cipher_og_title()} />
-	<meta property="og:description" content={m.cipher_meta_description()} />
-	<meta property="og:url" content={canonical} />
-	<link rel="alternate" hreflang="en" href={canonical} />
-	<link rel="alternate" hreflang="ru" href={`${SITE.url}/ru/tools/cipher`} />
-	<link rel="alternate" hreflang="x-default" href={canonical} />
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html `<script type="application/ld+json">${jsonLd}${scriptClose}`}
-</svelte:head>
+<SeoHead
+	title={m.cipher_seo_title({ heroName: m.hero_name() })}
+	description={m.cipher_meta_description()}
+	keywords={m.cipher_meta_keywords()}
+	ogTitle={m.cipher_og_title()}
+	jsonLd={jsonLd}
+/>
 
 <section class="mx-auto max-w-5xl scroll-mt-20 px-4 py-12 sm:px-6">
 	<nav aria-label={m.common_breadcrumb_aria()} class="mb-6 text-xs text-muted/70">
@@ -109,12 +101,8 @@
 
 	<section class="mt-14 space-y-12">
 		<div class="border-b border-border/60 pb-6">
-			<h2 class="text-2xl font-bold tracking-tight text-foreground">
-				{m.cipher_guide_heading()}
-			</h2>
-			<p class="mt-3 max-w-3xl leading-relaxed text-muted">
-				{m.cipher_guide_intro()}
-			</p>
+			<h2 class="text-2xl font-bold tracking-tight text-foreground">{m.cipher_guide_heading()}</h2>
+			<p class="mt-3 max-w-3xl leading-relaxed text-muted">{m.cipher_guide_intro()}</p>
 		</div>
 
 		<div class="grid gap-4 sm:grid-cols-2">
@@ -122,40 +110,28 @@
 				<article id={algo.id} class="scroll-mt-24 rounded-xl border border-border bg-surface p-4">
 					<div class="flex items-center justify-between">
 						<h3 class="font-mono text-base font-semibold text-foreground">{algo.name}</h3>
-						<span class="rounded bg-muted/10 px-2 py-0.5 text-xs text-muted">
-							{algo.bits}
-						</span>
+						<span class="rounded bg-muted/10 px-2 py-0.5 text-xs text-muted">{algo.bits}</span>
 					</div>
-					<p class="mt-2 text-sm leading-relaxed text-muted">
-						{algo.desc}
-					</p>
+					<p class="mt-2 text-sm leading-relaxed text-muted">{algo.desc}</p>
 				</article>
 			{/each}
 		</div>
 	</section>
 
 	<section class="mt-14">
-		<h2 class="text-2xl font-bold tracking-tight text-foreground">
-			{m.cipher_faq_heading()}
-		</h2>
+		<h2 class="text-2xl font-bold tracking-tight text-foreground">{m.cipher_faq_heading()}</h2>
 		<div class="mt-6 space-y-3">
 			{#each faq as item (item.q)}
 				<details class="group rounded-xl border border-border bg-surface p-4">
-					<summary class="cursor-pointer list-none text-sm font-semibold text-foreground marker:hidden">
-						{item.q}
-					</summary>
-					<p class="mt-2.5 text-sm leading-relaxed text-muted">
-						{item.a}
-					</p>
+					<summary class="cursor-pointer list-none text-sm font-semibold text-foreground marker:hidden">{item.q}</summary>
+					<p class="mt-2.5 text-sm leading-relaxed text-muted">{item.a}</p>
 				</details>
 			{/each}
 		</div>
 	</section>
 
 	<section class="mt-14">
-		<h2 class="text-2xl font-bold tracking-tight text-foreground">
-			{m.hash_related_tools_heading()}
-		</h2>
+		<h2 class="text-2xl font-bold tracking-tight text-foreground">{m.hash_related_tools_heading()}</h2>
 		<ul class="mt-4 flex flex-wrap gap-2">
 			<li>
 				<a class="inline-block rounded-lg border border-border bg-surface px-3 py-2 text-sm text-muted hover:border-accent/40 hover:text-foreground" href={resolve(localizeHref('/tools/hash') as Pathname)}>
