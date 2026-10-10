@@ -37,9 +37,9 @@
 				out['SHA3-384'] = toHex(sha3_384(bytes));
 				out['SHA3-512'] = toHex(sha3_512(bytes));
 				out['Keccak-256'] = toHex(keccak256(bytes));
-				out['BLAKE2b-512'] = toHex(blake2b(bytes, 64));
-				out['BLAKE2b-256'] = toHex(blake2b(bytes, 32));
-				out['BLAKE2s-256'] = toHex(blake2s(bytes, 32));
+				out['BLAKE2b-512'] = toHex(blake2b(bytes, { dkLen: 64 }));
+				out['BLAKE2b-256'] = toHex(blake2b(bytes, { dkLen: 32 }));
+				out['BLAKE2s-256'] = toHex(blake2s(bytes, { dkLen: 32 }));
 				out['RIPEMD-160'] = toHex(ripemd160(bytes));
 				out['Streebog-256'] = toHex(streebog256(bytes));
 				out['Streebog-512'] = toHex(streebog512(bytes));

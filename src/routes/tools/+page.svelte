@@ -5,123 +5,174 @@
 	import { m } from '$lib/paraglide/messages';
 	import { localizeHref } from '$lib/paraglide/runtime';
 
-	const groups = [
+	const canonical = `${SITE.url}/tools`;
+
+	const toolCards = $derived([
 		{
 			href: '/tools/hash',
-			title: 'Hash Generator',
-			titleRu: 'Генератор хешей',
-			desc: 'MD5, SHA-1, SHA-256, SHA-384, SHA-512, SHA-3, Keccak-256, BLAKE2b, BLAKE2s, RIPEMD-160',
-			keywords: ['sha256 online', 'md5 generator', 'sha512 hash', 'blake2'],
-		},
-		{
-			href: '/tools/encode',
-			title: 'Encoder / Decoder',
-			titleRu: 'Кодировщик / Декодер',
-			desc: 'Base64, Base64 URL, Base32, Hex, URL percent, HTML entities, ROT13, Binary, ASCII',
-			keywords: ['base64 encode', 'hex decode', 'url encode', 'rot13'],
+			title: m.tool_hash_title(),
+			desc: m.tools_hub_hash_desc(),
+			tags: ['SHA-256', 'SHA-512', 'Keccak', 'Стрибог ГОСТ', 'BLAKE2', 'xxHash', 'CRC32'],
 		},
 		{
 			href: '/tools/cipher',
-			title: 'Encryption & Ciphers',
-			titleRu: 'Шифрование',
-			desc: 'AES-256-GCM (PBKDF2), XOR, Caesar, Vigenère',
-			keywords: ['aes 256 online', 'caesar cipher', 'vigenere', 'xor cipher'],
+			title: m.tools_tab_cipher(),
+			desc: m.tools_hub_cipher_desc(),
+			tags: ['AES-GCM', 'ChaCha20', 'RSA-2048', 'ML-KEM (Kyber)', 'ECDSA', 'Diffie-Hellman'],
 		},
 		{
 			href: '/tools/hmac',
-			title: 'HMAC Generator',
-			titleRu: 'Генератор HMAC',
-			desc: 'HMAC-SHA1, HMAC-SHA256, HMAC-SHA384, HMAC-SHA512',
-			keywords: ['hmac sha256 online', 'hmac generator'],
+			title: m.tool_hmac_title(),
+			desc: m.tools_hub_hmac_desc(),
+			tags: ['HMAC-SHA256', 'HMAC-SHA512', 'HMAC-SHA3', 'HMAC-Стрибог', 'HMAC-SM3', 'JWT HS256'],
+		},
+		{
+			href: '/tools/encode',
+			title: m.tool_encode_title(),
+			desc: m.tools_hub_encode_desc(),
+			tags: ['Base64', 'Base64 URL', 'Hex', 'Base32', 'URL percent', 'Binary', 'ROT13'],
 		},
 		{
 			href: '/tools/misc',
-			title: 'Utilities',
-			titleRu: 'Утилиты',
-			desc: 'UUID v4 generator',
-			keywords: ['uuid v4 generator', 'guid generator'],
+			title: m.uuid_breadcrumb_title(),
+			desc: m.tools_hub_misc_desc(),
+			tags: ['UUID v4', 'UUID v7', 'Minecraft UUID', 'UUID Inspector', 'RFC 9562'],
 		},
-	];
+	]);
 
-	const canonical = `${SITE.url}/tools`;
+	const faq = $derived([
+		{ q: m.tools_hub_faq_q1(), a: m.tools_hub_faq_a1() },
+		{ q: m.tools_hub_faq_q2(), a: m.tools_hub_faq_a2() },
+		{ q: m.tools_hub_faq_q3(), a: m.tools_hub_faq_a3() },
+	]);
 
-	const jsonLd = JSON.stringify({
-		'@context': 'https://schema.org',
-		'@type': 'CollectionPage',
-		name: 'Free Online Developer Tools',
-		url: canonical,
-		description:
-			'Free online developer tools: hash generators (MD5, SHA-256, SHA-512), encoders (Base64, Hex), ciphers (AES, XOR, Caesar), HMAC, UUID.',
-		hasPart: groups.map((g) => ({
-			'@type': 'WebApplication',
-			name: g.title,
-			url: `${SITE.url}${g.href}`,
-			applicationCategory: 'DeveloperApplication',
-			operatingSystem: 'Any',
-			offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-		})),
-	});
+	const jsonLd = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@graph': [
+				{
+					'@type': 'CollectionPage',
+					name: m.tools_hub_seo_app_name(),
+					url: canonical,
+					description: m.tools_hub_meta_description(),
+					hasPart: toolCards.map((g) => ({
+						'@type': 'WebApplication',
+						name: g.title,
+						url: `${SITE.url}${g.href}`,
+						applicationCategory: 'DeveloperApplication',
+						operatingSystem: 'Any',
+						offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+					})),
+				},
+				{
+					'@type': 'BreadcrumbList',
+					itemListElement: [
+						{ '@type': 'ListItem', position: 1, name: m.common_home(), item: SITE.url },
+						{ '@type': 'ListItem', position: 2, name: m.common_tools(), item: canonical },
+					],
+				},
+				{
+					'@type': 'FAQPage',
+					mainEntity: faq.map((f) => ({
+						'@type': 'Question',
+						name: f.q,
+						acceptedAnswer: { '@type': 'Answer', text: f.a },
+					})),
+				},
+			],
+		})
+	);
 	const scriptClose = '</scr' + 'ipt>';
 </script>
 
 <svelte:head>
-	<title>Free Online Developer Tools — Hash, Base64, AES, HMAC | {m.hero_name()}</title>
-	<meta
-		name="description"
-		content="Free browser-based developer tools: SHA-256, MD5, SHA-512 hash generators, Base64/Base32/Hex encoders, AES-256-GCM, XOR, Caesar, Vigenère ciphers, HMAC and UUID v4."
-	/>
+	<title>{m.tools_hub_seo_title({ heroName: m.hero_name() })}</title>
+	<meta name="description" content={m.tools_hub_meta_description()} />
+	<meta name="keywords" content={m.tools_hub_meta_keywords()} />
 	<link rel="canonical" href={canonical} />
 	<meta name="robots" content="index, follow" />
+
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Free Online Developer Tools — Hash, Base64, AES, HMAC" />
-	<meta property="og:description" content="SHA-256 / MD5 / SHA-512 hashes, Base64 / Hex, AES-256-GCM, HMAC, UUID — всё работает в браузере, без отправки данных на сервер." />
+	<meta property="og:title" content={m.tools_hub_og_title()} />
+	<meta property="og:description" content={m.tools_hub_meta_description()} />
 	<meta property="og:url" content={canonical} />
+
+	<link rel="alternate" hreflang="en" href={canonical} />
+	<link rel="alternate" hreflang="ru" href={`${SITE.url}/ru/tools`} />
+	<link rel="alternate" hreflang="x-default" href={canonical} />
+
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html `<script type="application/ld+json">${jsonLd}${scriptClose}`}
 </svelte:head>
 
 <section class="mx-auto max-w-5xl scroll-mt-20 px-4 py-12 sm:px-6">
-	<nav aria-label="Breadcrumb" class="mb-6 text-xs text-muted/70">
-		<a href={resolve(localizeHref('/') as Pathname)} class="hover:text-foreground">Home</a>
+	<nav aria-label={m.common_breadcrumb_aria()} class="mb-6 text-xs text-muted/70">
+		<a href={resolve(localizeHref('/') as Pathname)} class="hover:text-foreground">{m.common_home()}</a>
 		<span class="mx-2">/</span>
-		<span class="text-foreground/80">Tools</span>
+		<span class="text-foreground/80">{m.common_tools()}</span>
 	</nav>
 
 	<header class="mb-10">
 		<h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-			Free Online Developer Tools
+			{m.tools_hub_h1()}
 		</h1>
-		<p class="mt-3 max-w-2xl text-pretty leading-relaxed text-muted">
-			A collection of fast, privacy-first tools that run entirely in your browser.
-			Compute <strong class="text-foreground">SHA-256</strong>, <strong class="text-foreground">MD5</strong>,
-			<strong class="text-foreground">SHA-512</strong> hashes, encode and decode
-			<strong class="text-foreground">Base64</strong>, <strong class="text-foreground">Hex</strong>,
-			<strong class="text-foreground">Base32</strong>, encrypt with
-			<strong class="text-foreground">AES-256-GCM</strong>, generate HMAC signatures and UUID v4.
-			No data ever leaves your device.
+		<p class="mt-3 max-w-3xl text-pretty leading-relaxed text-muted">
+			{m.tools_hub_hero()}
 		</p>
 	</header>
 
-	<ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-		{#each groups as g (g.href)}
-			<li>
+	<div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+		{#each toolCards as card (card.href)}
+			<article>
 				<a
-					href={resolve(localizeHref(g.href) as Pathname)}
-					class="group flex h-full flex-col rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-accent/40 hover:bg-surface-hover"
+					href={resolve(localizeHref(card.href) as Pathname)}
+					class="group flex h-full flex-col justify-between rounded-2xl border border-border bg-surface p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-hover hover:shadow-lg"
 				>
-					<h2 class="text-lg font-semibold text-foreground group-hover:text-accent">{g.title}</h2>
-					<p class="mt-2 text-sm leading-relaxed text-muted">{g.desc}</p>
-					<ul class="mt-4 flex flex-wrap gap-1.5">
-						{#each g.keywords as k (k)}
-							<li class="rounded-md bg-surface-hover px-2 py-0.5 font-mono text-[11px] text-muted">{k}</li>
+					<div>
+						<div class="flex items-center justify-between">
+							<h2 class="text-lg font-semibold tracking-tight text-foreground group-hover:text-accent">
+								{card.title}
+							</h2>
+							<span class="font-mono text-xs text-accent opacity-0 transition-opacity group-hover:opacity-100">
+								→
+							</span>
+						</div>
+						<p class="mt-2.5 text-sm leading-relaxed text-muted">
+							{card.desc}
+						</p>
+					</div>
+
+					<ul class="mt-5 flex flex-wrap gap-1.5" aria-label="Algorithms and formats">
+						{#each card.tags as tag (tag)}
+							<li class="rounded-md border border-border/60 bg-surface-hover/70 px-2 py-0.5 font-mono text-[11px] text-muted transition-colors group-hover:border-accent/20 group-hover:text-foreground">
+								{tag}
+							</li>
 						{/each}
 					</ul>
 				</a>
-			</li>
+			</article>
 		{/each}
-	</ul>
+	</div>
 
-	<p class="mt-10 text-center text-xs text-muted/60">
+	<section class="mt-14">
+		<h2 class="text-2xl font-bold tracking-tight text-foreground">
+			{m.hash_faq_heading()}
+		</h2>
+		<div class="mt-6 space-y-3">
+			{#each faq as item (item.q)}
+				<details class="group rounded-xl border border-border bg-surface p-4">
+					<summary class="cursor-pointer list-none text-sm font-semibold text-foreground marker:hidden">
+						{item.q}
+					</summary>
+					<p class="mt-2.5 text-sm leading-relaxed text-muted">
+						{item.a}
+					</p>
+				</details>
+			{/each}
+		</div>
+	</section>
+
+	<p class="mt-12 text-center text-xs text-muted/60">
 		{m.tools_privacy_note()}
 	</p>
 </section>

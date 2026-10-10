@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { localizeHref } from '$lib/paraglide/runtime';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import { m } from '$lib/paraglide/messages';
+	import { localizeHref } from '$lib/paraglide/runtime';
 
 	let status = $derived(page.status);
 	let is404 = $derived(status === 404);
@@ -32,7 +34,7 @@
 	</p>
 
 	<a
-		href={localizeHref('/')}
+		href={resolve(localizeHref('/') as Pathname)}
 		class="mt-8 inline-flex items-center gap-1.5 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90"
 	>
 		<svg

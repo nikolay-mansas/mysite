@@ -57,7 +57,9 @@ export async function webDigest(
 	algo: 'SHA-1' | 'SHA-256' | 'SHA-384' | 'SHA-512',
 	bytes: Uint8Array
 ): Promise<Uint8Array> {
-	const buf = await crypto.subtle.digest(algo, bytes as unknown as BufferSource);
+	const copy = new Uint8Array(new ArrayBuffer(bytes.byteLength));
+	copy.set(new Uint8Array(bytes.buffer, bytes.byteOffset, bytes.byteLength));
+	const buf = await crypto.subtle.digest(algo, copy);
 	return new Uint8Array(buf);
 }
 
@@ -133,6 +135,22 @@ export async function computeHmacAsync(
 	return await hashFn(concatBytes(oKeyPad, inner));
 }
 
+export function blake2b(
+	bytes: Uint8Array,
+	opts?: number | { dkLen?: number; key?: Uint8Array; salt?: Uint8Array; personalization?: Uint8Array }
+): Uint8Array {
+	const options = typeof opts === 'number' ? { dkLen: opts } : opts;
+	return _blake2b(bytes, options);
+}
+
+export function blake2s(
+	bytes: Uint8Array,
+	opts?: number | { dkLen?: number; key?: Uint8Array; salt?: Uint8Array; personalization?: Uint8Array }
+): Uint8Array {
+	const options = typeof opts === 'number' ? { dkLen: opts } : opts;
+	return _blake2s(bytes, options);
+}
+
 export const nobleHmac = _hmac;
 export {
 	sha224,
@@ -144,8 +162,6 @@ export {
 	_sha3_384 as sha3_384,
 	_sha3_512 as sha3_512,
 	keccak_256 as keccak256,
-	_blake2b as blake2b,
-	_blake2s as blake2s,
 	_ripemd160 as ripemd160,
 	sha1,
 	_md5 as md5
