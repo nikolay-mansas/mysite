@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { SITE } from '$lib/config';
 	import { resolve } from '$app/paths';
 	import type { Pathname } from '$app/types';
 	import { m } from '$lib/paraglide/messages';
-	import { SITE } from '$lib/config';
+	import { localizeHref } from '$lib/paraglide/runtime';
 
 	const groups = [
 		{
@@ -81,7 +82,7 @@
 
 <section class="mx-auto max-w-5xl scroll-mt-20 px-4 py-12 sm:px-6">
 	<nav aria-label="Breadcrumb" class="mb-6 text-xs text-muted/70">
-		<a href={resolve('/')} class="hover:text-foreground">Home</a>
+		<a href={resolve(localizeHref('/') as Pathname)} class="hover:text-foreground">Home</a>
 		<span class="mx-2">/</span>
 		<span class="text-foreground/80">Tools</span>
 	</nav>
@@ -105,7 +106,7 @@
 		{#each groups as g (g.href)}
 			<li>
 				<a
-					href={resolve(g.href as Pathname)}
+					href={resolve(localizeHref(g.href) as Pathname)}
 					class="group flex h-full flex-col rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-accent/40 hover:bg-surface-hover"
 				>
 					<h2 class="text-lg font-semibold text-foreground group-hover:text-accent">{g.title}</h2>
