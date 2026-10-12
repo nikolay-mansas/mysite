@@ -78,6 +78,10 @@
   "project_7_short": "Multi-platform bot that helps students find their college schedule and notifies them when it changes.",
   "project_7_long": "Developed a multi-platform schedule bot for Telegram, VK, and MAX. Implemented automatic analysis of the college website, collection of all data, and its further processing. Users can quickly find their college schedule and receive notifications about schedule changes. Implemented a unified database layer for all messengers, a queue-based system for broadcasts and alerts, and concurrent request handling.",
 
+  "project_8_title": "Internal Automation & Optimization for OnlineSim.io",
+  "project_8_short": "Python and JavaScript automation scripts for internal workflow optimization, API integration, and routine task reduction.",
+  "project_8_long": "Developed internal automation and optimization scripts in Python and JavaScript for OnlineSim.io. Automated routine operational workflows. Built reusable tooling for bulk operations, data synchronization, and browser-based tasks. Reduced manual effort, minimized human errors, and improved team throughput. Tech stack: Python, JavaScript, browser automation, data processing, internal tooling.",
+
   "tech_stack_title": "Tech Stack",
   "tech_stack_body": "This site is built with Svelte 5, SvelteKit, Tailwind CSS, Paraglide for localization, TypeScript, Vite, and other tools. Automated builds and deployments are set up via GitHub Actions: every push to the main branch triggers a fresh build and deploys the latest version.",
 
@@ -539,5 +543,29 @@
   "tools_hub_faq_q2": "Do these tools work offline without an internet connection?",
   "tools_hub_faq_a2": "Yes. Once the web application is loaded in your browser, all cryptographic calculators, encoders, and generators function completely offline.",
   "tools_hub_faq_q3": "Are the signatures and ciphertexts standard-compliant?",
-  "tools_hub_faq_a3": "Every algorithm strictly follows formal NIST FIPS, IETF RFC, and ISO standards. Generated outputs are fully interoperable with OpenSSL, Java JCE, Python (cryptography), Go, and Node.js."
+  "tools_hub_faq_a3": "Every algorithm strictly follows formal NIST FIPS, IETF RFC, and ISO standards. Generated outputs are fully interoperable with OpenSSL, Java JCE, Python (cryptography), Go, and Node.js.",
+
+  "nav_blog": "Blog",
+  "blog_eyebrow": "Writing",
+  "blog_heading": "Blog",
+  "blog_subheading": "Notes on backend engineering and self-hosted infrastructure.",
+  "blog_title": "Blog",
+  "blog_description": "Articles on backend engineering and self-hosted infrastructure.",
+  "blog_search_placeholder": "Search articles…",
+  "blog_search_title": "Search",
+  "blog_search_results": "Results for \"{q}\"",
+  "blog_no_results": "No articles found. Try different keywords.",
+  "blog_empty": "No articles yet — check back soon.",
+  "blog_clear": "Clear",
+  "blog_back": "Back to blog",
+  "blog_reading_time": "{minutes} min read",
+  "blog_related": "Related articles",
+  "services_eyebrow": "Available for work",
+  "services_heading": "Need a hand with your project?",
+  "services_body": "I build reliable backends and polished backends — FastAPI, PostgreSQL, MongoDB, and self-hosted infrastructure. From a quick consultation to a full build-out, I can help.",
+  "services_cta": "Get in touch",
+  "services_secondary": "See my work",
+
+  "blog_copy": "Copy",
+  "blog_copied": "Copied!"
 }

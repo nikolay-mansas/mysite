@@ -215,6 +215,27 @@ export const PROJECTS: Project[] = [
     ],
     year: "2026",
   },
+  {
+    id: "project-8",
+    titleKey: "project_8_title",
+    shortKey: "project_8_short",
+    longKey: "project_8_long",
+    role: "solo",
+    image: "projects/onlinesim.webp",
+    link: "https://onlinesim.io",
+    tags: [
+      "Python",
+      "JavaScript",
+      "Node.js",
+      "REST API",
+      "Automation",
+      "Browser Automation",
+      "Data Processing",
+      "Internal Tools",
+      "Process Optimization"
+    ],
+    year: "2026",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */

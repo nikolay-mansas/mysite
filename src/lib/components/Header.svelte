@@ -20,6 +20,7 @@
 		{ href: '#skills', label: () => m.nav_skills(), kind: 'anchor' },
 		{ href: '#experience', label: () => m.nav_experience(), kind: 'anchor' },
 		{ href: '#contact', label: () => m.nav_contact(), kind: 'anchor' },
+		{ href: '/blog', label: () => m.nav_blog(), kind: 'page' },
 		{ href: '/tools', label: () => m.nav_tools(), kind: 'page' },
 	];
 

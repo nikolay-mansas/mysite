@@ -1,6 +1,6 @@
 {
   "name": "mysite",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -21,7 +21,9 @@
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.0",
+    "@types/dompurify": "^3.0.5",
     "@types/he": "^1.2.3",
+    "@types/marked": "^5.0.2",
     "@types/node": "^24",
     "eslint": "^10.4.1",
     "eslint-config-prettier": "^10.1.8",
@@ -44,10 +46,13 @@
     "@noble/hashes": "^2.4.0",
     "@plus99/murmur-hash": "^1.0.2",
     "@scure/base": "^2.4.0",
+    "dompurify": "^3.4.17",
     "esbuild": "^0.28.1",
     "hash-wasm": "^4.12.0",
     "he": "^2.0.0",
+    "isomorphic-dompurify": "^4.5.0",
     "js-xxhash": "^5.0.1",
+    "marked": "^18.1.1",
     "pure-md5": "^1.0.0",
     "uuid": "^14.0.2"
   },
