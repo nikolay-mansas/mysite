@@ -105,13 +105,19 @@
 
 	
 	async function compute() {
-    error = '';
-    busy = true;
-    try {
-        if (algoId === 'cram-sha-1' && !challenge.trim()) {
-            challenge = randomChallenge();
-        }
-        output = await hashPassword(algoId, password, opts);
+		error = '';
+		busy = true;
+		await new Promise<void>((resolve) => {
+			requestAnimationFrame(() => {
+				requestAnimationFrame(() => resolve());
+			});
+		});
+
+		try {
+			if (algoId === 'cram-sha-1' && !challenge.trim()) {
+				challenge = randomChallenge();
+			}
+			output = await hashPassword(algoId, password, opts);
 		} catch (e) {
 			output = '';
 			error = (e as Error)?.message ?? String(e);
