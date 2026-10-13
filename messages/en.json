@@ -567,5 +567,53 @@
   "services_secondary": "See my work",
 
   "blog_copy": "Copy",
-  "blog_copied": "Copied!"
+  "blog_copied": "Copied!",
+
+  "tool_password_title": "Password Hash Generator",
+  "tools_hub_password_desc": "Password hashing KDFs and authentication schemes: Argon2id, bcrypt, scrypt, PBKDF2 (HMAC-SHA256/512), SHA-crypt, MD5crypt, Apache MD5, phpass, NTLM, SCRAM-SHA-256, CRAM-SHA-1, and MySQL authentication.",
+
+  "pwd_seo_title": "Online Password Hash Generator: Argon2id, bcrypt, scrypt, PBKDF2, SHA-crypt, NTLM, SCRAM | {heroName}",
+  "pwd_seo_app_name": "Online Password Hash Generator (Argon2id, bcrypt, scrypt, PBKDF2, SHA-crypt, NTLM, SCRAM)",
+  "pwd_meta_description": "Free online password hash generator: Argon2id, bcrypt, scrypt, PBKDF2-HMAC-SHA256/512, SHA-256crypt, SHA-512crypt, MD5crypt, Apache MD5 (apr1), phpass, NTLM, SCRAM-SHA-256, CRAM-SHA-1, MySQL caching_sha2_password and mysql_native_password. All hashing runs locally in your browser.",
+  "pwd_meta_keywords": "argon2id online, bcrypt generator, scrypt hash, pbkdf2 sha256, sha512crypt, sha256crypt, md5crypt, apr1 htpasswd, phpass, ntlm hash, scram-sha-256, cram-sha-1, caching_sha2_password, mysql_native_password, password hashing, kdf",
+  "pwd_og_title": "Online Password Hash Generator — Argon2id, bcrypt, scrypt, PBKDF2 & SHA-crypt",
+  "pwd_breadcrumb_title": "Password Hash Generator",
+  "pwd_h1_title": "Online Password Hash Generator — Argon2id, bcrypt, scrypt, PBKDF2 & SHA-crypt",
+  "pwd_hero_description": "Secure password hashing and key derivation directly in your browser. Supports modern OWASP-recommended schemes (Argon2id, bcrypt, scrypt, PBKDF2), legacy Unix and Apache formats (SHA-crypt, MD5crypt, apr1, phpass), Windows NTLM hashes, SASL authentication mechanisms (SCRAM-SHA-256, CRAM-SHA-1), and MySQL 8+ authentication. No data ever leaves your device.",
+
+  "pwd_guide_heading": "Password Hashing Algorithms Reference",
+  "pwd_guide_intro": "Unlike ordinary cryptographic hashes, password hashing key derivation functions (KDFs) are deliberately slow and resource-intensive. They defend against dictionary and rainbow-table attacks by forcing an attacker to consume significant memory and CPU time per guess. Below are both modern OWASP-recommended standards and historical schemes for compatibility with existing systems.",
+
+  "pwd_desc_argon2id": "Winner of the Password Hashing Competition (2015). Combines side-channel resistance (Argon2i) with GPU/ASIC attack resistance (Argon2d). Recommended by OWASP as the default password hashing algorithm. Tunable parameters: memory, iterations, and parallelism.",
+  "pwd_desc_bcrypt": "Adaptive hash function based on the Blowfish cipher (Niels Provos and David Mazières). Uses the expensive EksBlowfish key schedule; cost is tunable as a power-of-two iteration count. The de facto industry standard on Unix and web applications for over 25 years.",
+  "pwd_desc_scrypt": "Key derivation function by Colin Percival (RFC 7914). Its core idea is to require a large working memory (N), making parallel brute-force on GPUs and ASICs economically unviable. Parameters: N (cost), r (block size), p (parallelism).",
+  "pwd_desc_pbkdf2": "Password-Based Key Derivation Function 2 (RFC 8018, NIST SP 800-132). Iteratively applies HMAC to password and salt. Simple and widely supported, but weaker than Argon2id and scrypt against specialized hardware. At least 600,000 iterations are recommended for SHA-256.",
+  "pwd_desc_unix": "Family of schemes from /etc/shadow and web-server configs. SHA-512crypt ($6$) and SHA-256crypt ($5$) are glibc standards, MD5crypt ($1$) is a legacy BSD format, Apache MD5 ($apr1$) is the htpasswd format, and phpass ($P$) is a historic scheme from phpBB2 and WordPress. Use only for backward compatibility.",
+  "pwd_desc_ntlm": "Windows password hash format (MD4 of UTF-16LE). Used in NTLM and NetNTLM protocols for Active Directory and SMB authentication. Do not use for storing new passwords — MD4 is fully broken.",
+  "pwd_desc_scram": "Salted Challenge Response Authentication Mechanism (RFC 5802, RFC 7677). Stores SaltedPassword as StoredKey = H(ClientKey) and ServerKey = HMAC(SaltedPassword, \"Server Key\"), allowing the server to authenticate a client without storing the plaintext password. The standard in PostgreSQL and MongoDB.",
+  "pwd_desc_cram": "Challenge-Response Authentication Mechanism (RFC 2195). A simple authentication scheme: the server sends a random string, and the client replies with HMAC-SHA-1(password, challenge). Used in IMAP, POP3, and SMTP SASL.",
+
+  "pwd_desc_mysql": "Two MySQL authentication schemes. caching_sha2_password (MySQL 8+ default) applies SHA-256 twice to the password. mysql_native_password (legacy) applies SHA-1 twice and is the standard for PHP applications prior to MySQL 8.",
+
+  "pwd_faq_heading": "Frequently Asked Questions",
+  "pwd_faq_q1": "Which algorithm should I use for storing user passwords?",
+  "pwd_faq_a1": "Per OWASP recommendations, in order of preference: Argon2id (parameters: m=19 MiB, t=2, p=1), scrypt (N=2¹⁷, r=8, p=1), or bcrypt (cost ≥ 10). Never use fast hashes (MD5, SHA-256, NTLM) to store passwords — a modern GPU can compute billions per second. All three recommended algorithms are deliberately slow and memory-hard, making an attack economically unviable.",
+  "pwd_faq_q2": "What is the difference between password hashing and encryption?",
+  "pwd_faq_a2": "Password hashing is a one-way transformation: recovering the original password from a hash is infeasible. This is exactly what you want for secure storage. Encryption is reversible: anyone with the key can recover the original data. Passwords must never be encrypted, only hashed.",
+  "pwd_faq_q3": "Why are salts necessary in password hashes?",
+  "pwd_faq_a3": "A salt is a random string added to the password before hashing. It guarantees that two users with identical passwords receive different hashes, which defeats precomputed rainbow-table attacks and lets the salt be stored alongside the hash. All modern schemes (Argon2, bcrypt, scrypt, PBKDF2, SHA-crypt) embed the salt into their output string automatically.",
+  "pwd_faq_q4": "Why is SHA-256crypt slower than raw SHA-256?",
+  "pwd_faq_a4": "SHA-256crypt deliberately iterates raw SHA-256 in a 5000-round loop with extra time-hardening steps. This slows computation, but not enough — GPUs still compute millions of SHA-256crypt hashes per second. Modern KDFs like Argon2id go further: they require large amounts of RAM, making parallel cracking on specialized hardware more expensive than on ordinary CPUs.",
+
+  "pwd_group_kdf": "Key Derivation Functions (KDF)",
+  "pwd_group_unix": "Unix / Apache / PHP Schemes",
+  "pwd_group_auth": "Authentication Protocols",
+
+  "pwd_password_label": "Password",
+  "pwd_salt_label": "Salt",
+  "pwd_salt_placeholder": "Leave empty to generate a cryptographically random salt",
+  "pwd_challenge_label": "Challenge string (server-provided random value)",
+  "pwd_hashing": "Hashing…",
+  "pwd_hash_button": "Generate hash",
+  "pwd_result_label": "Result"
 }

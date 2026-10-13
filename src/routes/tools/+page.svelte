@@ -30,6 +30,12 @@
 			tags: ['HMAC-SHA256', 'HMAC-SHA512', 'HMAC-SHA3', 'HMAC-Streebog', 'HMAC-SM3', 'JWT HS256']
 		},
 		{
+			href: '/tools/password',
+			title: m.tool_password_title(),
+			desc: m.tools_hub_password_desc(),
+			tags: ['Argon2id', 'bcrypt', 'scrypt', 'PBKDF2', 'SHA-crypt', 'NTLM', 'SCRAM-SHA-256', 'MySQL auth']
+		},
+		{
 			href: '/tools/encode',
 			title: m.tool_encode_title(),
 			desc: m.tools_hub_encode_desc(),
