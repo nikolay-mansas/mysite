@@ -3,6 +3,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
+	import CookieConsent from '$lib/components/CookieConsent.svelte';
 
 	let { children } = $props();
 </script>
@@ -15,3 +16,5 @@
 	</main>
 	<Footer />
 </div>
+
+<CookieConsent />

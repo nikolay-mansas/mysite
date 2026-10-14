@@ -114,8 +114,9 @@ function renderInline(text: string, lang: Lang): string {
     return `${MARK_OPEN}${idx}${MARK_CLOSE}`;
   });
 
-  s = s.replace(/\$([^$<>\n]+)\$/g, (_, math: string) =>
-    `<span class="md-math">${renderMath(math)}</span>`,
+  s = s.replace(
+    /\$([^$<>\n]+)\$/g,
+    (_, math: string) => `<span class="md-math">${renderMath(math)}</span>`,
   );
 
   s = s.replace(
@@ -148,8 +149,7 @@ function renderInline(text: string, lang: Lang): string {
 }
 
 function renderSummary(inner: string, lang: Lang): string {
-  const allowed =
-    /<\/?(?:strong|em|b|i|code|kbd|s|del|mark|span|br)\s*\/?>/gi;
+  const allowed = /<\/?(?:strong|em|b|i|code|kbd|s|del|mark|span|br)\s*\/?>/gi;
   const parts: string[] = [];
   let last = 0;
   let m: RegExpExecArray | null;
@@ -210,9 +210,7 @@ export function renderMarkdown(md: string, lang: Lang = "en"): string {
         i++;
       }
       i++;
-      const langAttr = codeLang
-        ? ` data-lang="${escapeHtml(codeLang)}"`
-        : "";
+      const langAttr = codeLang ? ` data-lang="${escapeHtml(codeLang)}"` : "";
       out.push(
         `<pre class="md-pre"${langAttr}><code class="md-code-block">${escapeHtml(
           buf.join("\n"),
@@ -240,9 +238,7 @@ export function renderMarkdown(md: string, lang: Lang = "en"): string {
       if (i < lines.length) i++;
 
       const joined = inner.join("\n");
-      const summaryMatch = joined.match(
-        /<summary[^>]*>([\s\S]*?)<\/summary>/i,
-      );
+      const summaryMatch = joined.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i);
 
       const summaryHtml = summaryMatch
         ? renderSummary(summaryMatch[1].trim(), lang)

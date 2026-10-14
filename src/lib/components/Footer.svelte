@@ -2,6 +2,7 @@
 	import { SOCIALS } from '$lib/config';
 	import { m } from '$lib/paraglide/messages';
 	import TechStackModal from './TechStackModal.svelte';
+	import { openCookieSettings } from '$lib/consent';
 
 	const year = new Date().getFullYear();
 	let techModalOpen = $state(false);
@@ -26,6 +27,14 @@
 				class='cursor-pointer border-b border-dotted border-muted/50 text-sm text-muted transition-colors hover:border-accent hover:text-accent focus:outline-none'
 			>
 				{m.footer_about_site()}
+			</button>
+
+			<button
+				type='button'
+				onclick={openCookieSettings}
+				class='cursor-pointer border-b border-dotted border-muted/50 text-sm text-muted transition-colors hover:border-accent hover:text-accent focus:outline-none'
+			>
+				{m.cookie_settings()}
 			</button>
 
 			<ul class='flex items-center gap-2'>

@@ -232,7 +232,7 @@ export const PROJECTS: Project[] = [
       "Browser Automation",
       "Data Processing",
       "Internal Tools",
-      "Process Optimization"
+      "Process Optimization",
     ],
     year: "2026",
   },

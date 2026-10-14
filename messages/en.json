@@ -684,5 +684,11 @@
   "text_faq_q4": "How is reading time calculated?",
   "text_faq_a4": "Based on 200 words per minute — the average comfortable reading speed for an adult. The result is always rounded up.",
   "text_faq_q5": "Is my text uploaded to a server?",
-  "text_faq_a5": "No. All calculations run locally in your browser via JavaScript. Your text never leaves your device."
+  "text_faq_a5": "No. All calculations run locally in your browser via JavaScript. Your text never leaves your device.",
+
+  "cookie_title": "We use cookies",
+  "cookie_body": "This site uses cookies and Yandex.Metrika to analyse traffic. By clicking “Accept”, you consent to the processing of personal data in accordance with Federal Law No. 152-FZ “On Personal Data”.",
+  "cookie_accept": "Accept",
+  "cookie_decline": "Decline",
+  "cookie_settings": "Cookie settings"
 }

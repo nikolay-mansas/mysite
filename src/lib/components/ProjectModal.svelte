@@ -1,6 +1,7 @@
 <script lang='ts'>
 	import { m } from '$lib/paraglide/messages';
 	import { s3, type Project } from '$lib/config';
+	import { portal } from '$lib/actions/portal';
 
 	let { project, open, onClose } = $props<{ project: Project; open: boolean; onClose: () => void }>();
 
@@ -17,10 +18,18 @@
 
 	$effect(() => {
 		if (!open) return;
-		const previous = document.body.style.overflow;
+		const scrollbar = window.innerWidth - document.documentElement.clientWidth;
+		const prev = {
+			overflow: document.body.style.overflow,
+			paddingRight: document.body.style.paddingRight
+		};
 		document.body.style.overflow = 'hidden';
+		if (scrollbar > 0) {
+			document.body.style.paddingRight = `${scrollbar}px`;
+		}
 		return () => {
-			document.body.style.overflow = previous;
+			document.body.style.overflow = prev.overflow;
+			document.body.style.paddingRight = prev.paddingRight;
 		};
 	});
 
@@ -42,7 +51,8 @@
 
 {#if open}
 	<div
-		class='fixed inset-0 z-50 flex items-end justify-center bg-background/80 p-0 backdrop-blur-sm sm:items-center sm:p-6'
+		use:portal
+		class='fixed inset-0 z-200 flex items-end justify-center bg-background/80 p-0 backdrop-blur-sm sm:items-center sm:p-6'
 		role='presentation'
 		onclick={handleBackdropClick}
 	>
