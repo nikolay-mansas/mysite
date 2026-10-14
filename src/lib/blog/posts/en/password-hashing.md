@@ -2,6 +2,7 @@
 title: "Password Hashing in Python: bcrypt, Argon2, and Why It Matters"
 description: "A developer's guide to password security in Python 3: why fast hashes will get you breached, how salts and peppers actually work, choosing between Argon2id and bcrypt, and how to safely migrate legacy databases without breaking logins."
 date: 2026-10-13
+updated: 2026-10-13
 tags: [python, security, cryptography, password, backend]
 ---
 

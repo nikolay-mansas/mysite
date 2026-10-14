@@ -37,6 +37,13 @@ const STATIC_PAGES: readonly PageEntry[] = [
 
 const BASE_URL = SITE.url.replace(/\/+$/, "");
 
+function toW3CDate(value: string | Date | undefined | null): string | null {
+  if (!value) return null;
+  const d = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toISOString().split("T")[0];
+}
+
 function urlFor(locale: Locale, path: string): string {
   const isRoot = path === "/" || path === "";
   if (isRoot) {
@@ -53,29 +60,39 @@ function blogUrlFor(lang: Locale, slug: string): string {
     : `${BASE_URL}/${lang}/blog/${slug}`;
 }
 
+type PostMeta = {
+  lang: Locale;
+  slug: string;
+  date: string | Date;
+  updated?: string | Date;
+};
+
 function buildBlogEntries(): BlogEntry[] {
-  const posts = getAllPosts().filter((p) =>
+  const all = getAllPosts();
+  const posts = all.filter((p) =>
     (LOCALES as readonly string[]).includes(p.lang),
-  ) as Array<
-    (typeof getAllPosts extends () => (infer T)[] ? T : never) & {
-      lang: Locale;
-    }
-  >;
+  ) as PostMeta[];
 
   const bySlug = new Map<
     string,
-    Map<Locale, { date: string; updated?: string }>
+    Map<Locale, { date: string | Date; updated?: string | Date }>
   >();
 
   for (const p of posts) {
     const bucket = bySlug.get(p.slug) ?? new Map();
     const existing = bucket.get(p.lang);
+
+    const incomingDate = p.updated ?? p.date;
+    const existingDate = existing ? (existing.updated ?? existing.date) : null;
+
     if (
       !existing ||
-      (existing.updated ?? existing.date) < (p.updated ?? p.date)
+      !existingDate ||
+      new Date(existingDate).getTime() < new Date(incomingDate).getTime()
     ) {
       bucket.set(p.lang, { date: p.date, updated: p.updated });
     }
+
     bySlug.set(p.slug, bucket);
   }
 
@@ -86,10 +103,13 @@ function buildBlogEntries(): BlogEntry[] {
     for (const lang of langs.keys()) translations[lang] = slug;
 
     for (const [lang, meta] of langs) {
+      const w3c = toW3CDate(meta.updated ?? meta.date);
+      if (!w3c) continue;
+
       entries.push({
         lang,
         slug,
-        lastmod: meta.updated ?? meta.date,
+        lastmod: w3c,
         translations,
       });
     }
@@ -138,13 +158,15 @@ function blogAlternates(
     );
   }
 
-  const defaultSlug =
-    translations[DEFAULT_LOCALE] ??
-    translations[LOCALES.find((l) => translations[l])!];
+  const defaultLang: Locale | undefined =
+    translations[DEFAULT_LOCALE] !== undefined
+      ? DEFAULT_LOCALE
+      : LOCALES.find((l) => translations[l] !== undefined);
 
-  if (defaultSlug) {
+  if (defaultLang) {
+    const defaultSlug = translations[defaultLang]!;
     lines.push(
-      `${indent}<xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(blogUrlFor(DEFAULT_LOCALE, defaultSlug))}" />`,
+      `${indent}<xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(blogUrlFor(defaultLang, defaultSlug))}" />`,
     );
   }
 
@@ -166,11 +188,11 @@ ${staticAlternates(page.path)}
   </url>`;
 }
 
-function blogUrlEntry(post: BlogEntry, buildDate: string): string {
+function blogUrlEntry(post: BlogEntry): string {
   const loc = escapeXml(blogUrlFor(post.lang, post.slug));
   return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${post.lastmod ?? buildDate}</lastmod>
+    <lastmod>${post.lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 ${blogAlternates(post.translations)}
@@ -188,7 +210,7 @@ export function GET() {
   }
 
   for (const post of buildBlogEntries()) {
-    entries.push(blogUrlEntry(post, buildDate));
+    entries.push(blogUrlEntry(post));
   }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
