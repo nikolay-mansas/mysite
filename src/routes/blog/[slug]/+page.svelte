@@ -1,4 +1,6 @@
 <script lang='ts'>
+	import { s3 } from '$lib/config';
+	import { SITE } from '$lib/config';
 	import SeoHead from '$lib/components/SeoHead.svelte';
 	import MarkdownContent from '$lib/components/MarkdownContent.svelte';
 	import RelatedPosts from '$lib/components/RelatedPosts.svelte';
@@ -30,14 +32,27 @@
 		'@type': 'BlogPosting',
 		headline: post.title,
 		description: post.description,
-		datePublished: post.date,
-		dateModified: post.updated ?? post.date,
+		datePublished: new Date(post.date).toISOString(),
+		dateModified: new Date(post.updated ?? post.date).toISOString(),
 		inLanguage: post.lang,
 		keywords: post.tags.join(', '),
-		author: { '@type': 'Person', name: m.hero_name() },
-		publisher: { '@type': 'Person', name: m.hero_name() },
+		wordCount: undefined,
+		timeRequired: `PT${post.readingTime}M`,
+		author: {
+			'@type': 'Person',
+			name: m.hero_name(),
+			url: SITE.url,
+			jobTitle: m.hero_role(),
+			knowsAbout: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Backend Engineering']
+		},
+		publisher: {
+			'@type': 'Person',
+			name: m.hero_name(),
+			url: SITE.url
+		},
 		mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
-		url: canonical
+		url: canonical,
+		image: SITE.ogImage ? [s3(SITE.ogImage)] : undefined
 	});
 </script>
 

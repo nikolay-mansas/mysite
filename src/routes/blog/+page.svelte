@@ -1,4 +1,6 @@
 <script lang='ts'>
+	import { page } from '$app/state';
+	import { SITE } from '$lib/config';
 	import SeoHead from '$lib/components/SeoHead.svelte';
 	import BlogCard from '$lib/components/BlogCard.svelte';
 	import SearchResultCard from '$lib/components/SearchResultCard.svelte';
@@ -6,18 +8,47 @@
 	import { m } from '$lib/paraglide/messages';
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import { resolve } from '$app/paths';
+	import { buildSeoUrls } from '$lib/seo';
 	import type { Pathname } from '$app/types';
 
 	let { data } = $props();
+	let urls = $derived(buildSeoUrls(page.url.pathname));
 
 	const clearHref = $derived(resolve(localizeHref('/blog') as Pathname));
 	const isSearch = $derived(data.mode === 'search');
+
+	const jsonLd = $derived({
+		'@context': 'https://schema.org',
+		'@graph': [
+		{
+			'@type': 'Blog',
+			'@id': `${urls.canonical}#blog`,
+			url: urls.canonical,
+			name: m.blog_title(),
+			description: m.blog_description(),
+			inLanguage: urls.isRu ? 'ru-RU' : 'en-US',
+			publisher: {
+			'@type': 'Person',
+			name: m.hero_name(),
+			url: SITE.url
+			}
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: m.common_home(), item: urls.homeUrl },
+			{ '@type': 'ListItem', position: 2, name: m.blog_title(), item: urls.canonical }
+			]
+		}
+		]
+  	});
 </script>
 
 <SeoHead
 	title={isSearch ? `${m.blog_search_title()} · ${data.q}` : m.blog_title()}
 	description={m.blog_description()}
 	ogType='website'
+	jsonLd={isSearch ? null : jsonLd}
 />
 
 <svelte:head>
