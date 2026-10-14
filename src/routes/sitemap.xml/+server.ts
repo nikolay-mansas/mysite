@@ -33,6 +33,7 @@ const STATIC_PAGES: readonly PageEntry[] = [
   { path: "/tools/cipher", changefreq: "monthly", priority: 0.8 },
   { path: "/tools/hmac", changefreq: "monthly", priority: 0.8 },
   { path: "/tools/uuid", changefreq: "monthly", priority: 0.7 },
+  { path: "/tools/text", changefreq: "monthly", priority: 0.7 },
 ];
 
 const BASE_URL = SITE.url.replace(/\/+$/, "");

@@ -46,7 +46,13 @@
 			title: m.uuid_breadcrumb_title(),
 			desc: m.tools_hub_uuid_desc(),
 			tags: ['UUID v4', 'UUID v7', 'Minecraft UUID', 'UUID Inspector', 'RFC 9562']
-		}
+		},
+		{
+			href: '/tools/text',
+			title: m.tool_text_title(),
+			desc: m.tools_hub_text_desc(),
+			tags: ['Word Counter', 'Character Count', 'Regex Replace', 'Case Convert', 'Text Cleanup']
+		},
 	]);
 
 	const faq = $derived([
