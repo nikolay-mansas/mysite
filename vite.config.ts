@@ -23,4 +23,7 @@ export default defineConfig({
       strategy: ["url", "cookie", "preferredLanguage", "baseLocale"],
     }),
   ],
+  ssr: {
+    noExternal: true
+  }
 });
