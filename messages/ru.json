@@ -146,7 +146,7 @@
 
   "hash_seo_title": "Генератор хешей онлайн: SHA-256, MD5, Keccak, Стрибог ГОСТ, Murmur, CRC32 | {heroName}",
   "hash_seo_app_name": "Онлайн генератор хешей и контрольных сумм (SHA, Keccak, Murmur, xxHash, ГОСТ)",
-  "hash_meta_description": "Бесплатный онлайн генератор хешей: расчет SHA-256, MD5, SHA-512, Keccak-256, BLAKE2, xxHash, MurmurHash, CRC-32, Adler-32 и ГОСТ Стрибог прямо в браузере. Без передачи данных на сервер.",
+  "hash_meta_description": "Кодирование и декодирование Base64, Base64 URL, Base32, Hex, URL, HTML, ROT13, Binary и ASCII онлайн. Бесплатно онлайн.",
   "hash_meta_keywords": "sha256 онлайн, генератор md5, стрибог гост онлайн, keccak256 ethereum, xxhash32 онлайн, murmurhash3, crc32 расчет, adler32, whirlpool хеш, blake2b, генератор хешей",
   "hash_og_title": "Онлайн генератор хешей — Криптографические хеши и контрольные суммы",
   "hash_h1_title": "Онлайн генератор хешей — SHA-256, MD5, Keccak, ГОСТ Стрибог и контрольные суммы",
@@ -280,7 +280,7 @@
 
   "uuid_seo_title": "Генератор и Декодер UUID v4, v7, v1 — Minecraft UUID онлайн | {heroName}",
   "uuid_seo_app_name": "Онлайн генератор и декодер UUID / GUID (v1, v3, v4, v5, v7, Minecraft)",
-  "uuid_meta_description": "Онлайн генератор и инспектор-декодер UUID v1, v3, v4, v5, v7 и Minecraft офлайн UUID. Конвертация в Integer, NBT int-array, проверка времени и MAC-узла без отправки на сервер.",
+  "uuid_meta_description": "Онлайн генератор и декодер UUID v1, v3, v4, v5, v7 и Minecraft UUID. Конвертация в Integer, NBT int-array, инспекция времени и узла.",
   "uuid_meta_keywords": "генератор uuid, декодер uuid, uuid v4, uuid v7, minecraft uuid, инспектор uuid, offline player uuid, guid generator, rfc 4122, rfc 9562",
   "uuid_og_title": "Онлайн генератор и декодер UUID / GUID (v1–v7, Minecraft)",
   "uuid_h1": "Генератор и Декодер UUID / GUID",
@@ -389,7 +389,7 @@
 
   "hmac_seo_title": "Генератор HMAC онлайн: SHA-256, SHA-512, SHA-3, Стрибог ГОСТ, BLAKE2, SM3, Whirlpool | {heroName}",
   "hmac_seo_app_name": "Онлайн генератор подписей HMAC (SHA-2, SHA-3, BLAKE2, Стрибог, SM3, RIPEMD)",
-  "hmac_meta_description": "Онлайн расчет HMAC-подписей: HMAC-SHA256, HMAC-SHA512, HMAC-SHA3, BLAKE2b/s, Стрибог ГОСТ, SM3, Whirlpool, MD5 и RIPEMD. Мгновенная аутентификация сообщений в браузере.",
+  "hmac_meta_description": "Онлайн расчет HMAC-подписей: HMAC-SHA256, HMAC-SHA512, HMAC-SHA3, BLAKE2b/s, Стрибог ГОСТ, SM3, Whirlpool, MD5 и RIPEMD.",
   "hmac_meta_keywords": "hmac sha256 онлайн, генератор hmac, hmac sha512, hmac sha3, hmac стрибог гост, hmac blake2b, hmac sm3, hmac whirlpool, jwt hs256, aws signature v4, hmac ripemd",
   "hmac_og_title": "Онлайн генератор подписей HMAC — Все современные и государственные алгоритмы",
   "hmac_h1_title": "Онлайн генератор HMAC — SHA-2, SHA-3, BLAKE2, Стрибог ГОСТ и SM3",
@@ -476,7 +476,7 @@
 
   "cipher_seo_title": "Шифрование онлайн: AES-256, ML-KEM, RSA, ChaCha20, Twofish, Blowfish, ECDSA | {heroName}",
   "cipher_seo_app_name": "Онлайн инструмент шифрования (AES, ChaCha20, RSA, ML-KEM, ECC)",
-  "cipher_meta_description": "Шифрование и расшифровка онлайн: AES (128/192/256/512), ChaCha20, Twofish, Blowfish, Serpent, DES, IDEA, Camellia, ARIA, RSA-2048, ECDSA, ECDH, Diffie-Hellman и постквантовые ML-KEM-512/768/1024 и ML-DSA.",
+  "cipher_meta_description": "Шифрование онлайн: AES (128–512), ChaCha20, Twofish, Blowfish, Serpent, 3DES, IDEA, Camellia, ARIA, RSA-2048, ECDSA, ECDH, ML-KEM-512/768/1024, ML-DSA.",
   "cipher_meta_keywords": "ml-kem 768 онлайн, ml-kem 512, ml-kem 1024, aes 256 онлайн, rsa генератор ключей, twofish, blowfish, des 3des, ecdsa подпись, diffie hellman, ecdh онлайн шифрование",
   "cipher_og_title": "Онлайн шифрование данных — AES, RSA, ML-KEM Post-Quantum & ECC",
   "cipher_h1_title": "Онлайн шифрование и криптография — AES, ML-KEM, RSA, ECC и ChaCha20",
@@ -526,7 +526,7 @@
 
   "tools_hub_seo_title": "Бесплатные онлайн инструменты для разработчиков: Хеши, Шифрование, HMAC, Base64, UUID | {heroName}",
   "tools_hub_seo_app_name": "Онлайн инструменты для разработчиков (Хеши, Шифрование, HMAC, Кодеки, UUID)",
-  "tools_hub_meta_description": "Быстрые онлайн инструменты для разработчиков: расчет хешей (SHA-256, Keccak, Стрибог), шифрование и цифровая подпись (AES, RSA, ChaCha20, ML-KEM), генератор HMAC, кодировщик Base64/Hex и генератор UUID v1–v7. 100% приватно в браузере.",
+  "tools_hub_meta_description": "Онлайн-инструменты для разработчиков: хеши SHA-256/Keccak/Стрибог, шифры и подписи AES/RSA/ChaCha20/ML-KEM, HMAC, Base64/Hex, UUID. 100% в браузере.",
   "tools_hub_meta_keywords": "инструменты разработчика онлайн, генератор хешей, шифрование онлайн, rsa генератор, aes 256, hmac генератор, base64 онлайн, uuid v7 генератор, post quantum encryption",
   "tools_hub_og_title": "Бесплатные онлайн инструменты разработчика — Хеши, Шифрование, HMAC, Base64 & UUID",
   "tools_hub_h1": "Бесплатные онлайн инструменты для разработчиков",
@@ -562,7 +562,7 @@
   "blog_related": "Похожие статьи",
   "services_eyebrow": "Открыт для проектов",
   "services_heading": "Нужна помощь с проектом?",
-  "services_body": "Проектирую надёжные бэкенды и аккуратные бэкенды — FastAPI, PostgreSQL, MongoDB и self-hosted инфраструктура. От разовой консультации до полной разработки.",
+  "services_body": "Проектирую надёжные и аккуратные бэкенды — FastAPI, PostgreSQL, MongoDB и self-hosted инфраструктура. От разовой консультации до полной разработки.",
   "services_cta": "Связаться",
   "services_secondary": "Мои работы",
 
@@ -574,7 +574,7 @@
 
   "pwd_seo_title": "Генератор хешей паролей онлайн: Argon2id, bcrypt, scrypt, PBKDF2, SHA-crypt, NTLM, SCRAM | {heroName}",
   "pwd_seo_app_name": "Онлайн генератор хешей паролей (Argon2id, bcrypt, scrypt, PBKDF2, SHA-crypt, NTLM, SCRAM)",
-  "pwd_meta_description": "Бесплатный онлайн генератор хешей паролей: Argon2id, bcrypt, scrypt, PBKDF2-HMAC-SHA256/512, SHA-256crypt, SHA-512crypt, MD5crypt, Apache MD5 (apr1), phpass, NTLM, SCRAM-SHA-256, CRAM-SHA-1, MySQL caching_sha2_password и mysql_native_password. Все вычисления выполняются локально в браузере.",
+  "pwd_meta_description": "Онлайн генератор хешей паролей: Argon2id, bcrypt, scrypt, PBKDF2, SHA-crypt, MD5crypt, apr1, phpass, NTLM, SCRAM-SHA-256, MySQL. Всё локально в браузере.",
   "pwd_meta_keywords": "argon2id онлайн, bcrypt генератор, scrypt хеш, pbkdf2 sha256, sha512crypt, sha256crypt, md5crypt, apr1 htpasswd, phpass, ntlm хеш, scram-sha-256, cram-sha-1, caching_sha2_password, mysql_native_password, хеширование паролей, kdf",
   "pwd_og_title": "Онлайн генератор хешей паролей — Argon2id, bcrypt, scrypt, PBKDF2 и SHA-crypt",
   "pwd_breadcrumb_title": "Генератор хешей паролей",

@@ -146,7 +146,7 @@
 
   "hash_seo_title": "Online Hash Generator: SHA-256, MD5, Keccak, MurmurHash, CRC32, Streebog | {heroName}",
   "hash_seo_app_name": "Online Hash & Checksum Generator (SHA, Keccak, Murmur, xxHash, CRC)",
-  "hash_meta_description": "Free online hash generator: compute SHA-256, MD5, SHA-512, Keccak-256, BLAKE2, xxHash, MurmurHash, CRC-32, Adler-32, and GOST Streebog in your browser. 100% private, client-side calculation.",
+  "hash_meta_description": "Free online hash generator: SHA-256, MD5, SHA-512, Keccak-256, BLAKE2, xxHash, MurmurHash, CRC-32, Adler-32, GOST Streebog. 100% client-side.",
   "hash_meta_keywords": "sha256 generator, md5 hash online, keccak256, xxhash32 online, murmurhash3 generator, crc32 checksum, adler32, streebog gost, whirlpool hash, blake2b, client side hash",
   "hash_og_title": "Online Hash Generator — Cryptographic Hashes & Fast Checksums",
   "hash_h1_title": "Online Hash Generator — SHA-256, MD5, Keccak, BLAKE2 & Fast Checksums",
@@ -280,7 +280,7 @@
 
   "uuid_seo_title": "UUID v4, v7, v1 Generator & Decoder — Minecraft UUID Online | {heroName}",
   "uuid_seo_app_name": "Online UUID / GUID Generator & Decoder (v1, v3, v4, v5, v7, Minecraft)",
-  "uuid_meta_description": "Free online UUID v1, v3, v4, v5, v7 and Minecraft offline UUID generator and decoder inspector. Convert to Integer, NBT int-array, inspect timestamp and node offline.",
+  "uuid_meta_description": "Free online UUID v1, v3, v4, v5, v7 and Minecraft offline UUID generator and decoder. Convert to Integer, NBT int-array, inspect timestamp and node.",
   "uuid_meta_keywords": "uuid generator, uuid decoder, uuid v4, uuid v7, minecraft uuid, uuid inspector, offline player uuid, guid generator, rfc 4122, rfc 9562",
   "uuid_og_title": "Online UUID / GUID Generator & Decoder (v1–v7, Minecraft)",
   "uuid_h1": "UUID / GUID Generator & Decoder",
@@ -389,7 +389,7 @@
 
   "hmac_seo_title": "Online HMAC Generator: SHA-256, SHA-512, SHA-3, Streebog GOST, BLAKE2, SM3, Whirlpool | {heroName}",
   "hmac_seo_app_name": "Online HMAC Generator (SHA-2, SHA-3, BLAKE2, Streebog, SM3, RIPEMD)",
-  "hmac_meta_description": "Compute HMAC signatures online: HMAC-SHA256, HMAC-SHA512, HMAC-SHA3, BLAKE2b/s, Streebog GOST, SM3, Whirlpool, MD5 and RIPEMD. Instant, 100% client-side authentication.",
+  "hmac_meta_description": "Compute HMAC online: SHA-256, SHA-512, SHA-3, BLAKE2b/s, Streebog GOST, SM3, Whirlpool, MD5, RIPEMD. Client-side message authentication.",
   "hmac_meta_keywords": "hmac sha256 online, hmac generator, hmac sha512, hmac sha3, hmac streebog gost, hmac blake2b, hmac sm3, hmac whirlpool, jwt hs256, aws signature v4, hmac ripemd",
   "hmac_og_title": "Online HMAC Generator — Standard & National Message Authentication Codes",
   "hmac_h1_title": "Online HMAC Generator — SHA-2, SHA-3, BLAKE2, Streebog & SM3",
@@ -476,7 +476,7 @@
 
   "cipher_seo_title": "Online Encryption: AES-256, ML-KEM, RSA, ChaCha20, Twofish, Blowfish, ECDSA | {heroName}",
   "cipher_seo_app_name": "Online Cipher & Cryptography Suite (AES, ChaCha20, RSA, ML-KEM, ECC)",
-  "cipher_meta_description": "Encrypt and decrypt online: AES (128/192/256/512), ChaCha20, Twofish, Blowfish, Serpent, DES, IDEA, Camellia, ARIA, RSA-2048, ECDSA, ECDH, Diffie-Hellman, and Post-Quantum ML-KEM-512/768/1024 and ML-DSA.",
+  "cipher_meta_description": "Encrypt and decrypt online: AES (128–512), ChaCha20, Twofish, Blowfish, Serpent, 3DES, IDEA, Camellia, ARIA, RSA-2048, ECDSA, ECDH, ML-KEM-512/768/1024, ML-DSA.",
   "cipher_meta_keywords": "ml-kem 768 online, ml-kem 512, ml-kem 1024, aes 256 online, rsa key generator, twofish, blowfish, des 3des, ecdsa signature, diffie hellman, ecdh online encryption",
   "cipher_og_title": "Online Cipher Suite — AES, RSA, ML-KEM Post-Quantum & ECC",
   "cipher_h1_title": "Online Cipher & Encryption — AES, ML-KEM, RSA, ECC & ChaCha20",
@@ -526,7 +526,7 @@
 
   "tools_hub_seo_title": "Free Online Developer Tools: Hash, Ciphers, HMAC, Base64, UUID | {heroName}",
   "tools_hub_seo_app_name": "Online Developer Tools Suite (Hashes, Ciphers, HMAC, Codecs, UUID)",
-  "tools_hub_meta_description": "Fast, privacy-first developer tools: compute hashes (SHA-256, Keccak, Streebog), ciphers & digital signatures (AES, RSA, ChaCha20, ML-KEM), HMAC generator, Base64/Hex codecs, and UUID v1–v7 generator & inspector. 100% client-side.",
+  "tools_hub_meta_description": "Fast, privacy-first dev tools: SHA-256, Keccak, Streebog hashes; AES, RSA, ChaCha20, ML-KEM ciphers/signatures; HMAC; Base64/Hex; UUID. 100% client-side.",
   "tools_hub_meta_keywords": "developer tools online, hash generator, online ciphers, rsa key generator, aes 256 online, hmac generator, base64 encoder, uuid v7 generator, post quantum encryption",
   "tools_hub_og_title": "Free Online Developer Tools — Hashes, Ciphers, HMAC, Base64 & UUID",
   "tools_hub_h1": "Free Online Developer Tools",
@@ -562,7 +562,7 @@
   "blog_related": "Related articles",
   "services_eyebrow": "Available for work",
   "services_heading": "Need a hand with your project?",
-  "services_body": "I build reliable backends and polished backends — FastAPI, PostgreSQL, MongoDB, and self-hosted infrastructure. From a quick consultation to a full build-out, I can help.",
+  "services_body": "I build reliable and polished backends — FastAPI, PostgreSQL, MongoDB, and self-hosted infrastructure. From a quick consultation to a full build-out, I can help.",
   "services_cta": "Get in touch",
   "services_secondary": "See my work",
 
@@ -574,7 +574,7 @@
 
   "pwd_seo_title": "Online Password Hash Generator: Argon2id, bcrypt, scrypt, PBKDF2, SHA-crypt, NTLM, SCRAM | {heroName}",
   "pwd_seo_app_name": "Online Password Hash Generator (Argon2id, bcrypt, scrypt, PBKDF2, SHA-crypt, NTLM, SCRAM)",
-  "pwd_meta_description": "Free online password hash generator: Argon2id, bcrypt, scrypt, PBKDF2-HMAC-SHA256/512, SHA-256crypt, SHA-512crypt, MD5crypt, Apache MD5 (apr1), phpass, NTLM, SCRAM-SHA-256, CRAM-SHA-1, MySQL caching_sha2_password and mysql_native_password. All hashing runs locally in your browser.",
+  "pwd_meta_description": "Online password hash generator: Argon2id, bcrypt, scrypt, PBKDF2, SHA-crypt, MD5crypt, apr1, phpass, NTLM, SCRAM-SHA-256, MySQL. All client-side.",
   "pwd_meta_keywords": "argon2id online, bcrypt generator, scrypt hash, pbkdf2 sha256, sha512crypt, sha256crypt, md5crypt, apr1 htpasswd, phpass, ntlm hash, scram-sha-256, cram-sha-1, caching_sha2_password, mysql_native_password, password hashing, kdf",
   "pwd_og_title": "Online Password Hash Generator — Argon2id, bcrypt, scrypt, PBKDF2 & SHA-crypt",
   "pwd_breadcrumb_title": "Password Hash Generator",
