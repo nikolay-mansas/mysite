@@ -4,7 +4,7 @@
 	import ProjectCard from './ProjectCard.svelte';
 </script>
 
-<section id='work' class='mx-auto max-w-5xl scroll-mt-20 px-4 py-16 sm:px-6'>
+<section id='work' class='mx-auto max-w-5xl scroll-mt-20 px-4 py-16 sm:px-6 section-cv'>
 	<div class='mb-10 max-w-2xl'>
 		<h2 class='text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl'>
 			{m.work_heading()}

@@ -1,8 +1,9 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
 
-  "meta_title": "Кира — Backend-разработчик на Python",
-  "meta_description": "Разработчик программного обеспечения, создающий веб-приложения, инструменты и open-source проекты. Посмотрите мои работы, опыт и свяжитесь со мной.",
+  "meta_title": "Кира — Backend-разработчик Python | FastAPI, PostgreSQL",
+  "meta_description": "Backend-разработчик на Python с опытом 5+ лет. Создаю высоконагруженные системы на FastAPI, PostgreSQL, Redis, Telegram-ботов и REST API",
+  "hero_h1": "Кира — Backend-разработчик Python",
 
   "nav_work": "Работы",
   "nav_about": "Обо мне",
@@ -21,7 +22,7 @@
   "hero_cta_work": "Посмотреть мои работы",
   "hero_cta_contact": "Связаться",
 
-  "work_heading": "Избранные проекты",
+  "work_heading": "Избранные проекты на Python и FastAPI",
   "work_subheading": "Подборка проектов, которые я создал самостоятельно или в команде.",
   "work_role_solo": "Личный проект",
   "work_role_team": "Командный проект",
@@ -31,10 +32,10 @@
   "work_close": "Закрыть",
   "work_about_project": "О проекте",
 
-  "about_heading": "Обо мне",
+  "about_heading": "Обо мне — Backend-разработчик Python",
   "about_body": "Разработчик бэкенда с опытом более 5 лет в Python и FastAPI. Специализируюсь на проектировании высоконагруженных, отказоустойчивых систем для электронной коммерции и логистики.\n\n• Спроектировал бэкенд для интеграции с Ozon, обрабатывающий более 3 млн отправлений.\n• Создал Telegram-ботов для аналитики Wildberries, которые используют более 500 продавцов.\n• Разработал платформу для видеохостинга с собственным конвейером транскодирования в S3.\n\nЯ владею полным циклом разработки — от проектирования до развертывания — и с удовольствием работаю как самостоятельно, так и в кросс-функциональных командах.",
 
-  "contact_heading": "Давайте свяжемся",
+  "contact_heading": "Связаться с Кирой — Backend Python Developer",
   "contact_body": "Напишите мне на любой из этих платформ — я всегда рад обсудить проекты, сотрудничество или идеи.",
 
   "footer_rights": "Все права защищены.",
@@ -87,7 +88,7 @@
 
   "footer_about_site": "О сайте",
 
-  "experience_heading": "Опыт работы",
+  "experience_heading": "Опыт коммерческой backend-разработки",
   "experience_subheading": "Мой профессиональный путь",
   "experience_current": "Текущий",
 
@@ -116,7 +117,7 @@
   "experience.period5": "2020 – 2021",
   "experience.desc5": "Разрабатывал разнообразные сервисы и веб-сайты под нужды клиентов. Для каждого проекта уделял внимание и помогал определить точную цель и способ её реализации.",
 
-  "skills_heading": "Навыки и Языки",
+  "skills_heading": "Навыки backend: Python, FastAPI, PostgreSQL, Redis",
   "skills_hard": "Технологии",
   "skills_languages": "Языки",
   "lang_native": "Родной",

@@ -10,10 +10,8 @@
 
 	<p class='mb-3 font-mono text-sm text-accent'>{m.hero_greeting()}</p>
 
-	<h1
-		class='text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl'
-	>
-		{m.hero_name()}
+	<h1 class='text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl'>
+		{m.hero_h1()}
 	</h1>
 
 	<p class='mt-3 text-xl font-medium text-muted sm:text-2xl'>

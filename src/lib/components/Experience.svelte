@@ -5,7 +5,7 @@
   const t = (key: string) => (m as unknown as Record<string, () => string>)[key]?.() ?? '';
 </script>
 
-<section id='experience' class='mx-auto max-w-5xl scroll-mt-20 px-4 py-16 sm:px-6'>
+<section id='experience' class='mx-auto max-w-5xl scroll-mt-20 px-4 py-16 sm:px-6 section-cv'>
   <div class='mb-10'>
     <h2 class='text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl'>
       {m.experience_heading()}
@@ -29,10 +29,7 @@
             >
               {#if exp.current}
                 <span class='h-1.5 w-1.5 rounded-full bg-accent'></span>
-                <span
-                  class='absolute -inset-1.5 rounded-full bg-accent/10 animate-pulse'
-                  style='animation-duration: 2s;'
-                ></span>
+                <span class='absolute -inset-1.5 rounded-full bg-accent/10 animate-pulse-slow'></span>
               {/if}
             </div>
           </div>

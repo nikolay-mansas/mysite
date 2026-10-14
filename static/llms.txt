@@ -1,0 +1,28 @@
+# Kira — Backend Python Developer
+
+> Backend developer with 5+ years of experience building high-load systems in Python, FastAPI, PostgreSQL, and Redis. Specialized in e-commerce, logistics, Telegram bots, REST APIs and self-hosted infrastructure.
+
+## Pages
+- [Home](https://ddkira.ru/): portfolio and experience
+- [Blog](https://ddkira.ru/blog): backend engineering notes
+- [Tools](https://ddkira.ru/tools): client-side hash, cipher, HMAC, UUID, base64 tools
+- [Tools: Hashes](https://ddkira.ru/tools/hash)
+- [Tools: Ciphers](https://ddkira.ru/tools/cipher)
+- [Tools: HMAC](https://ddkira.ru/tools/hmac)
+- [Tools: UUID](https://ddkira.ru/tools/uuid)
+
+## Selected projects
+- Warehouse system with Ozon integration — 3M+ shipments, FastAPI, PostgreSQL, Redis
+- Telegram bot for English learning — FFmpeg, Celery, Redis, multithreading
+- Video hosting — Svelte 5, FastAPI, S3 transcoding pipeline
+- Warehouse system with X5 Group integration
+- Bonus System for AmoCRM — Httpx, Async, PostgreSQL
+- Telegram bot for Wildberries sellers — Aiogram, SQLAlchemy, Cryptography
+- Schedule Bot for Telegram, VK, MAX — RabbitMQ, K8S
+- Internal Automation for OnlineSim.io — Python, JavaScript, Node.js
+
+## Contact
+- Telegram: https://t.me/kira_worker
+- Discord: https://discord.com/users/892096651341221888
+- Email: im@ddkira.ru
+- GitHub: https://github.com/nikolay-mansas/mysite

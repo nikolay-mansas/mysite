@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ddkira.ru/sitemap.xml
+Host: https://ddkira.ru

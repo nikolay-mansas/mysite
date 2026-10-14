@@ -21,7 +21,9 @@
     />
     <link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0b0f14" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name='theme-color' content='#0b0f14' />
     <link
       rel="preconnect"
       href="https://mysite.s3.ddkira.ru/"
@@ -32,6 +34,9 @@
       href="https://mysite.s3.ddkira.ru/"
       crossorigin="anonymous"
     />
+    <link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
+    <link rel='preconnect' href='https://mc.yandex.ru' crossorigin />
+    <link rel='dns-prefetch' href='https://www.google-analytics.com' />
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -83,14 +88,9 @@
         trackLinks: true,
       });
     </script>
-    <noscript
-      ><div>
-        <img
-          src="https://mc.yandex.ru/watch/111047575"
-          style="position: absolute; left: -9999px"
-          alt=""
-        /></div
-    ></noscript>
+    <noscript>
+      <img src="https://mc.yandex.ru/watch/111047575" style="position:absolute;left:-9999px" alt="" />
+    </noscript>
     <!-- /Yandex.Metrika counter -->
     %sveltekit.head%
   </head>

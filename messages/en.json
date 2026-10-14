@@ -1,8 +1,9 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
 
-  "meta_title": "Kira — Backend Python Developer",
-  "meta_description": "Software developer building web apps, tools, and open-source projects. Explore my work, experience, and get in touch.",
+  "meta_title": "Kira — Backend Python Developer | FastAPI, PostgreSQL, Redis",
+  "meta_description": "Backend Python developer with 5+ years of experience. I build high-load FastAPI, PostgreSQL, Redis systems, Telegram bots, REST APIs and open-source tools.",
+  "hero_h1": "Kira — Backend Python Developer",
 
   "nav_work": "Work",
   "nav_about": "About",
@@ -21,7 +22,7 @@
   "hero_cta_work": "View my work",
   "hero_cta_contact": "Get in touch",
 
-  "work_heading": "Selected Work",
+  "work_heading": "Selected Backend & Python Projects",
   "work_subheading": "A collection of projects I've built on my own or together with a team.",
   "work_role_solo": "Solo project",
   "work_role_team": "Team project",
@@ -31,10 +32,10 @@
   "work_close": "Close",
   "work_about_project": "About the project",
 
-  "about_heading": "About",
+  "about_heading": "About Kira — Backend Python Developer",
   "about_body": "Backend developer with 5+ years of experience in Python and FastAPI. I specialize in designing high‑load, fault‑tolerant systems for e‑commerce and logistics.\n\n• Architected backend for Ozon integration handling 3M+ shipments.\n• Built Telegram bots for Wildberries analytics used by 500+ sellers.\n• Created a video hosting platform with custom S3 transcoding pipeline.\n\nI own the entire development cycle — from design to deployment — and enjoy working both independently and in cross‑functional teams.",
 
-  "contact_heading": "Let's connect",
+  "contact_heading": "Contact Kira — Backend Python Developer",
   "contact_body": "Reach out on any of these platforms — I'm always happy to chat about projects, collaboration, or ideas.",
 
   "footer_rights": "All rights reserved.",
@@ -87,7 +88,7 @@
 
   "footer_about_site": "About site",
 
-  "experience_heading": "Experience",
+  "experience_heading": "Professional Backend Development Experience",
   "experience_subheading": "My professional journey",
   "experience_current": "Current",
 
@@ -116,7 +117,7 @@
   "experience.period5": "2020 – 2021",
   "experience.desc5": "Developed a wide variety of services and websites tailored to clients' needs. For each project, paid close attention and helped define the exact objective and how it would be implemented.",
 
-  "skills_heading": "Skills & Languages",
+  "skills_heading": "Backend Skills: Python, FastAPI, PostgreSQL, Redis",
   "skills_hard": "Tech Stack",
   "skills_languages": "Languages",
   "lang_native": "Native",

@@ -32,20 +32,25 @@
 
 <svelte:head>
 	<title>{title}</title>
+	<meta name='author' content='DDKira' />
 	<meta name='description' content={description} />
 	{#if keywords}<meta name='keywords' content={keywords} />{/if}
 	<link rel='canonical' href={urls.canonical} />
-	<meta name='robots' content='index, follow' />
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+	<link rel='alternate' type='text/markdown' href='/llms.txt' title='LLM-friendly site overview' />
+	<meta name='format-detection' content='telephone=no' />
 
 	<meta property='og:type' content={ogType} />
 	<meta property='og:title' content={ogTitle ?? title} />
 	<meta property='og:description' content={ogDescription ?? description} />
 	<meta property='og:url' content={urls.canonical} />
-	<meta property='og:site_name' content='Kira Tools' />
+	<meta property='og:site_name' content='Kira — Backend Python Developer | Tools' />
 	<meta property='og:locale' content={urls.isRu ? 'ru_RU' : 'en_US'} />
 	<meta property='og:locale:alternate' content={urls.isRu ? 'en_US' : 'ru_RU'} />
 	{#if ogImage}
 		<meta property='og:image' content={ogImage} />
+		<meta property='og:image:type' content='image/png' />
+		<meta property='og:image:secure_url' content={ogImage} />
 		<meta property='og:image:alt' content={title} />
 		<meta property='og:image:width' content='1200' />
 		<meta property='og:image:height' content='630' />

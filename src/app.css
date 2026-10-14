@@ -29,6 +29,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.section-cv {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
 ::selection {
   background-color: var(--color-accent);
   color: var(--color-accent-foreground);
