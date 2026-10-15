@@ -690,5 +690,32 @@
   "cookie_body": "This site uses cookies and Yandex.Metrika to analyse traffic. By clicking “Accept”, you consent to the processing of personal data in accordance with Federal Law No. 152-FZ “On Personal Data”.",
   "cookie_accept": "Accept",
   "cookie_decline": "Decline",
-  "cookie_settings": "Cookie settings"
+  "cookie_settings": "Cookie settings",
+
+  "legal_eyebrow": "Legal documents",
+
+  "pdf_open": "Open in new tab",
+  "pdf_download": "Download",
+  "pdf_fallback": "Your browser can't display the PDF.",
+  "pdf_mobile_hint": "For the best experience open the document in your device's PDF viewer.",
+  "pdf_download_fallback": "Couldn't download the file automatically. The document was opened in a new tab — save it via your browser's menu.",
+
+  "consent_title": "Consent to Personal Data Processing",
+  "consent_heading": "Consent to Personal Data Processing",
+  "consent_description": "Consent to the processing of personal data in accordance with Federal Law No. 152-FZ “On Personal Data”.",
+
+  "privacy_title": "Personal Data Processing Policy",
+  "privacy_heading": "Personal Data Processing Policy",
+  "privacy_description": "The policy describes what data is collected, for what purposes, and how it is protected.",
+
+  "security_title": "Information on Implemented Personal Data Protection Requirements",
+  "security_heading": "Information on Implemented Personal Data Protection Requirements",
+  "security_description": "The document lists legal, organisational and technical measures implemented by the operator to comply with Article 19 of Federal Law No. 152-FZ “On Personal Data” and Russian Government Decree No. 1119 of 01.11.2012.",
+
+  "cookie_body_lead": "This site uses cookies and Yandex.Metrika. By clicking “Accept”, you consent to the processing of personal data under",
+  "cookie_body_mid": "and in accordance with the",
+
+  "footer_privacy": "Privacy Policy",
+  "footer_consent": "Data Consent",
+  "footer_security": "Security Measures"
 }

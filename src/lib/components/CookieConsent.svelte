@@ -1,6 +1,9 @@
 <script lang='ts'>
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import { onMount } from 'svelte';
 	import { m } from '$lib/paraglide/messages';
+	import { localizeHref } from '$lib/paraglide/runtime';
 	import {
 		getConsent,
 		setConsent,
@@ -9,15 +12,6 @@
 	} from '$lib/consent';
 
 	let visible = $state(false);
-
-	onMount(() => {
-		const consent = getConsent();
-		if (consent === null) {
-			visible = true;
-		} else if (consent === 'accepted') {
-			loadYandexMetrika();
-		}
-	});
 
 	function choose(value: ConsentValue) {
 		setConsent(value);
@@ -65,11 +59,22 @@
 					>
 						{m.cookie_title()}
 					</h2>
-					<p
-						id='cookie-desc'
-						class='mt-1.5 text-sm leading-relaxed text-muted'
-					>
-						{m.cookie_body()}
+
+					<p id='cookie-desc' class='mt-1.5 text-sm leading-relaxed text-muted'>
+						{m.cookie_body_lead()}
+						<a
+							href={resolve(localizeHref('/consent') as Pathname)}
+							class='text-accent underline underline-offset-2 transition-opacity hover:opacity-80'
+						>
+							{m.consent_title()}
+						</a>
+						{m.cookie_body_mid()}
+						<a
+							href={resolve(localizeHref('/privacy') as Pathname)}
+							class='text-accent underline underline-offset-2 transition-opacity hover:opacity-80'
+						>
+							{m.privacy_title()}
+						</a>.
 					</p>
 				</div>
 

@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /consent
+Disallow: /ru/consent
+Disallow: /privacy
+Disallow: /ru/privacy
+Disallow: /security
+Disallow: /ru/security
 
 Sitemap: https://ddkira.ru/sitemap.xml
 Host: https://ddkira.ru
